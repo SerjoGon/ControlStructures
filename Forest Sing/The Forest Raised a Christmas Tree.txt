@@ -1,0 +1,4 @@
+﻿Build started...
+1>------ Build started: Project: Forest Sing, Configuration: Debug x64 ------
+1>Forest Sing.vcxproj -> F:\Cod\Forest Sing\x64\Debug\Forest Sing.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
