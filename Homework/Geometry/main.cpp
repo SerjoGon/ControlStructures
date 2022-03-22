@@ -182,19 +182,22 @@ void main()
 	cout << "Input number: "; cin >> n;
 	for (int i = 0; i < n;i++)
 	{
-		for (int i = 0; i < n;i++)
+		for (int j = 0; j < n;j++)
 		{
-			if ((double)i / 2 != i / 2)
+			for (int f = 0; f < n;f++)
 			{
+				if (i % 2 == f % 2)
+				{
 					for (int k = 0; k < n; k++)cout << " -";
-			}
-			else
-			{				
+				}
+				else
+				{
 					for (int g = 0; g < n; g++)cout << " *";
+				}
 			}
+			cout << endl;
 		}
-		cout << endl;
-
 	}
+
 #endif
 }

@@ -1,7 +1,8 @@
 ﻿#pragma warning(disable:4326)
 #include<iostream>
 using namespace std;
-#define CHESS_1
+//#define CHESS_1
+#define CHESS_2
 #define UPPER_LEFT_ANGLE		(char) 218
 #define DOWN_LEFT_ANGLE   (char) 192
 #define UPPER_RIGHT_ANGLE		(char) 191 
@@ -23,9 +24,9 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "C");
-	int n;
+	/*int n;
 	cout << "Enter size of board: ";cin >> n;
-	n++;
+	n++;*/
 	/*for (int i = 0;i < 256;i++)
 	{
 		cout << i << "\t" << (char)i << endl;
@@ -49,4 +50,34 @@ void main()
 		cout << endl;
 	}
 #endif
+#ifdef CHESS_2
+	int n;
+	cout << "Enter size of board: ";cin >> n;
+	for (int i = 0; i < n;i++)
+	{
+		/*if(i == 0)cout<< UPPER_LEFT_ANGLE;
+		else if (i == 0)
+		{
+			for (int d = 0; d <= (n *= n); d++)cout <<(d != (n*=n) ? VERTICAL_LINE : UPPER_RIGHT_ANGLE);
+		}*/
+		for (int j = 0; j < n;j++)
+		{
+			
+			for (int f = 0; f < n;f++)
+			{
+				if (i % 2 == f % 2)
+				{
+					for (int k = 0; k < n; k++)cout << WHITE_BOX;
+				}
+				else
+				{
+					for (int g = 0; g < n; g++)cout << BLACK_BOX;
+				}
+			}
+			cout << endl;
+		}
+	}
+
+#endif
+
 }
