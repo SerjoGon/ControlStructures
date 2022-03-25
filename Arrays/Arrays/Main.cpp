@@ -7,12 +7,18 @@ void main()
 {
 	setlocale(LC_ALL, "Russian");
 	double sum = 0, average = 0;
-	const int n = 5; // кол-во элем массива
+	const int n = 10; // кол-во элем массива
 	int arr[n] = {};
-	cout << "¬ведите элементы массива (" << n << "шт)";
+	int minRand = 0;
+	int maxRand = 0;
+	cout << "¬ведите минимальное возможное случайное число:"; cin >> minRand;
+	cout << "¬ведите максимально возможное случайное число:"; cin >> maxRand;
+	int result = maxRand - minRand;
+	//cout << "¬ведите элементы массива (" << n << "шт)";
 	for (int i = 0; i < n; i++)
 	{
-		cin >> arr[i];
+		//cin >> arr[i];
+		arr[i] = rand()%(maxRand - minRand) + minRand;
 	}
 	cout << "Ёлементы массива по пор€дку:" << endl;
 	for (int i = 0; i < n; i++)
