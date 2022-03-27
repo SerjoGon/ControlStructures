@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 void main()
@@ -7,7 +7,7 @@ void main()
 	int dec = 0;
 	const int size = 32;
 	int hex[size] = {};
-	cout << "Ââåäèòå äåñÿòè÷íîå ÷èñëî: "; cin >> dec;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´ÐµÑÑÑ‚Ð¸Ñ‡Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾: "; cin >> dec;
 	int i = 0;
 	for (; dec; i++)
 	{
@@ -23,7 +23,7 @@ void main()
 		}*/
 		dec /= 16;
 	}
-	cout << "Øåñòíàäöàòåðè÷íîå ÷èñëî: ";
+	cout << "Ð¨ÐµÑÑ‚Ð½Ð°Ð´Ñ†Ð°Ñ‚ÐµÑ€Ð¸Ñ‡Ð½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ";
 	for (i--;i >= 0;i--)
 	{
 		if (hex[i] >= 10)
