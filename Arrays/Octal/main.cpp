@@ -5,7 +5,7 @@ void main()
 {
 	setlocale(LC_ALL, "Russian");
 	int dec = 0;
-	const int size = 32;
+	const int size = 11;
 	int oct[size] = {};
 	cout << "Введите десятичное число: "; cin >> dec;
 	int i = 0;

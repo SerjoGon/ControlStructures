@@ -19,7 +19,7 @@ void main()
 	for (int i = 0; i < number_of_shifts; i++)
 	{
 		int buffer = arr[n - 1];
-		for (int i = n -1; i >= 0; i--)
+		for (int i = n -1; i > 0; i--)
 		{
 			arr[i] = arr[i-1];
 		}
