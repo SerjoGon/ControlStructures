@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sort", "Sort\Sort.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UniqueRand", "UniqueRand\UniqueRand.vcxproj", "{BADCCC86-AC7F-49B7-A7BD-6222451A79C7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dublicates", "dublicates\dublicates.vcxproj", "{DCEB5153-66B3-4516-83E6-F37326EF9D72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{BADCCC86-AC7F-49B7-A7BD-6222451A79C7}.Release|x64.Build.0 = Release|x64
 		{BADCCC86-AC7F-49B7-A7BD-6222451A79C7}.Release|x86.ActiveCfg = Release|Win32
 		{BADCCC86-AC7F-49B7-A7BD-6222451A79C7}.Release|x86.Build.0 = Release|Win32
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Debug|x64.ActiveCfg = Debug|x64
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Debug|x64.Build.0 = Debug|x64
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Debug|x86.ActiveCfg = Debug|Win32
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Debug|x86.Build.0 = Debug|Win32
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Release|x64.ActiveCfg = Release|x64
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Release|x64.Build.0 = Release|x64
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Release|x86.ActiveCfg = Release|Win32
+		{DCEB5153-66B3-4516-83E6-F37326EF9D72}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
