@@ -139,7 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Fillrand.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="Shifts.cpp" />
+    <ClCompile Include="Sort.cpp" />
+    <ClCompile Include="Statistics.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Conctants.h" />
+    <ClInclude Include="Fillrand.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="Shifts.h" />
+    <ClInclude Include="Sort.h" />
+    <ClInclude Include="Statistics.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
