@@ -1,41 +1,36 @@
 #include <iostream>;
 using namespace std;
-void Print(int arr[], const int n);
+const int ROW = 3;
+const int COL = 3;
+void fillrand(char arr[ROW][COL], const int ROW, const int COL);
+void Print(char arr[ROW][COL], const int ROW, const int COL);
 void main()
 {
 	setlocale(LC_ALL, "RU");
-	const int n = 5;
-	int arr[n] = { 1,2,3,4,5 };
-	Print(arr, n);
-	int shifts;
-	cout << "¬ведите количесвто сдвигов массива:"; cin >> shifts;
-	/*for (int j = 0; j < shifts;j++)
-	{
-	int buffer = arr[0];
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = arr[i + 1];
-	}
-	arr[n - 1] = buffer;
-	}
-	Print(arr, n);*/
-	for (int i = 0; i < shifts;i++)
-	{
-		int buffer = arr[n - 1];
-		for (int j = n - 1; j > 0; j--)
-		{
-			arr[j] = arr[j - 1];
-		}
-		arr[0] = buffer;
-	}
-	
-	Print(arr, n);
+	char arr2[ROW][COL];
+	fillrand(arr2, ROW, COL);
+	Print(arr2, ROW, COL);
+
 }
-void Print(int arr[], const int n)
+void fillrand(char arr[ROW][COL], const int ROW, const int COL)
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < ROW; i++)
 	{
-		cout << arr[i] << "  ";
+		for (int j = 0; j < COL;j++)
+		{
+			arr[i][j] = rand() % (120 - 60) + 60;
+		}
 	}
-	cout << endl;
+}
+
+void Print(char arr[ROW][COL], const int ROW, const int COL)
+{
+	for (int i = 0; i < ROW; i++)
+	{
+		for (int j = 0; j < COL; j++)
+		{
+			cout << arr[i][j] << "  ";
+		}
+		cout << endl;
+	}
 }
