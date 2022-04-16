@@ -10,5 +10,5 @@ double AVG(T arr[], const int n)
 template<typename T>
 double AVG(T arr[ROW][COL], const int ROW, const int COL)
 {
-	return(double)Sum(arr[ROW][COL], ROW, COL) / ROW / COL;
+	return(double)Sum(arr, ROW, COL) / ROW / COL;
 }
