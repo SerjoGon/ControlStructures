@@ -141,6 +141,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AVG.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="Fillrand.h" />
+    <ClInclude Include="MAX.h" />
+    <ClInclude Include="MIN.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="ShiftL.h" />
+    <ClInclude Include="ShiftR.h" />
+    <ClInclude Include="Sort.h" />
+    <ClInclude Include="Sum.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
