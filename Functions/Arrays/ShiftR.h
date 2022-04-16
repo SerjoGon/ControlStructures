@@ -5,10 +5,10 @@
 template<class T>
 void ShiftR(T arr[], const int n, int shiftsR)
 {
-	for (int i = 0; i < shiftsR; i++)
+	for (int j = 0; j < shiftsR;j++)
 	{
 		T buffer = arr[0];
-		for (int j = 0; j < n; j++)
+		for (int i = 0; i < n; i++)
 		{
 			arr[i] = arr[i + 1];
 		}
