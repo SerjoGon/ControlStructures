@@ -1,15 +1,13 @@
 #pragma once
 #include"Constants.h"
 
-template<typename T>
-T Sum(T arr[], const int n)
+template<typename T>T Sum(T arr[], const int n)
 {
 	T sum = 0;
 	for (int i = 0; i < n; i++) sum += arr[i];
 	return sum;
 }
-template<typename T>
-T Sum(T arr[ROW][COL], const int ROW, const int COL)
+template<typename T>T Sum(T arr[ROW][COL], const int ROW, const int COL)
 {
 	T sum = 0;
 	for (int i = 0; i < ROW;i++)
