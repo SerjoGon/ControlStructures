@@ -25,7 +25,7 @@ void main()
 	cout << "Минимальное значение массива: " << MIN(arr, n) << endl;
 	cout << "Максимальное значение массива: " << MAX(arr, n) << endl;
 	cout << "Введите количесвто сдвигов массива вправо:"; cin >> shiftsR;
-	cout << "Введите количество сдвигов:"; cin >> shiftsL;
+	cout << "Введите количество сдвигов влево:"; cin >> shiftsL;
 	ShiftR(arr, n, shiftsR);	Print(arr, n);
 	ShiftL(arr, n, shiftsL);	Print(arr, n);
 	cout << delimetr << endl;
@@ -36,8 +36,6 @@ void main()
 	cout << "Среднее арифметическое элементов массива: " << AVG(arr1, n) << endl;
 	cout << "Минимальное значение массива: " << MIN(arr1, n) << endl;
 	cout << "Максимальное значение массива: " << MAX(arr1, n) << endl;
-	cout << "Введите количество сдвигов массива вправо: ";cin >> shiftsR;
-	cout << "Введите количество сдвигов массива влево: ";cin >> shiftsL;
 	ShiftR(arr1, n, shiftsR);	Print(arr1, n);
 	ShiftL(arr1, n, shiftsL); Print(arr1, n);
 	cout << delimetr << endl;
@@ -62,8 +60,6 @@ void main()
 	Sort(arr4, n);	Print(arr4, n);
 	cout << "Минимальное значение массива: " << MIN(arr4, n) << endl;
 	cout << "Максимальное значение массива: " << MAX(arr4, n) << endl;
-	cout << "Введите количество сдвигов массива вправо: ";cin >> shiftsR;
-	cout << "Введите количество сдвигов массива влево: ";cin >> shiftsL;
 	ShiftR(arr4, n, shiftsR);	Print(arr4, n);
 	ShiftL(arr4, n, shiftsL); Print(arr4, n);
 	cout << delimetr << endl;
