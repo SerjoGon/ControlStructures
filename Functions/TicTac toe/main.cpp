@@ -8,14 +8,19 @@ using namespace std;
 void PrintField(char field[], const int n, char player);
 void Move(char field[], const int n, char player);
 void Check(char field[], const int n, char player);
-
+void InitField(char field[], const int n, char player);
 void main()
 {
 	setlocale(LC_ALL, "RUS");
 	const int n = 9;
 	char field[n] = { ' ',' ',' ',' ',' ',' ',' ',' ',' ' };
 	//for (int i = 0; i < n; i++) field[i] = i + 49;
-	PrintField(field, n, 'O');
+	//PrintField(field, n, 'O');
+	do
+	{
+		InitField(field, n, 'O');
+		cout << "Еще раз? Да - любая клавиша, Нет - Escape" << endl;
+	} while (_getch() != 27);
 }
 void PrintField(char field[], const int n, char player)
 {
@@ -91,4 +96,9 @@ void Check(char field[], const int n, char player)
 	}
 	//PrintField(field, n, player == 'X' ? 'O' : 'X');
 	Move(field, n, player == 'X' ? 'O' : 'X');
+}
+void InitField(char field[], const int n, char player)
+{
+	for (int i = 0; i < n; i++)field[i] = ' ';
+	PrintField(field, n, player);
 }
