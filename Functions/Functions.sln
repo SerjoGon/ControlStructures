@@ -11,6 +11,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arrays", "Arrays\Arrays.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Function home practic", "Function home practic\Function home practic.vcxproj", "{87485A4C-D841-4147-B9DC-B06ACFC345A1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Recursion", "Recursion\Recursion.vcxproj", "{6978A854-D640-4DDE-B244-55A15DB1284F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "func with recursion", "func with recursion\func with recursion.vcxproj", "{15CCBBC8-4205-43AD-8B66-6CCD2F609258}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TicTac toe", "TicTac toe\TicTac toe.vcxproj", "{464F1346-5B22-442F-BB87-875F6F8C4322}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +57,30 @@ Global
 		{87485A4C-D841-4147-B9DC-B06ACFC345A1}.Release|x64.Build.0 = Release|x64
 		{87485A4C-D841-4147-B9DC-B06ACFC345A1}.Release|x86.ActiveCfg = Release|Win32
 		{87485A4C-D841-4147-B9DC-B06ACFC345A1}.Release|x86.Build.0 = Release|Win32
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Debug|x64.ActiveCfg = Debug|x64
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Debug|x64.Build.0 = Debug|x64
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Debug|x86.ActiveCfg = Debug|Win32
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Debug|x86.Build.0 = Debug|Win32
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Release|x64.ActiveCfg = Release|x64
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Release|x64.Build.0 = Release|x64
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Release|x86.ActiveCfg = Release|Win32
+		{6978A854-D640-4DDE-B244-55A15DB1284F}.Release|x86.Build.0 = Release|Win32
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Debug|x64.ActiveCfg = Debug|x64
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Debug|x64.Build.0 = Debug|x64
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Debug|x86.ActiveCfg = Debug|Win32
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Debug|x86.Build.0 = Debug|Win32
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Release|x64.ActiveCfg = Release|x64
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Release|x64.Build.0 = Release|x64
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Release|x86.ActiveCfg = Release|Win32
+		{15CCBBC8-4205-43AD-8B66-6CCD2F609258}.Release|x86.Build.0 = Release|Win32
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Debug|x64.ActiveCfg = Debug|x64
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Debug|x64.Build.0 = Debug|x64
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Debug|x86.ActiveCfg = Debug|Win32
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Debug|x86.Build.0 = Debug|Win32
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Release|x64.ActiveCfg = Release|x64
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Release|x64.Build.0 = Release|x64
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Release|x86.ActiveCfg = Release|Win32
+		{464F1346-5B22-442F-BB87-875F6F8C4322}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
