@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pointers", "Pointers\Pointers.vcxproj", "{32F3DA04-9616-40FA-974B-39B87D2AB8C8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Home practic", "Home practic\Home practic.vcxproj", "{609F0EB1-BD13-4BF2-B241-A63C97254DBC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Variable parameters list", "Variable parameters list\Variable parameters list.vcxproj", "{D9347174-F50F-4659-A33E-AFE2FB89B4E2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dynamic arrays", "dynamicMemory\dynamicMemory.vcxproj", "{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Serch in arrays with pointers", "Serch in arrays with pointers\Serch in arrays with pointers.vcxproj", "{59F72E57-97D7-40F9-9EBB-C44454519735}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hanoi tower", "Hanoi tower\Hanoi tower.vcxproj", "{E52B0D78-D860-4400-B21E-91696605FDE2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dynamic Mem2", "Dynamic Mem2\Dynamic Mem2.vcxproj", "{43562BB2-66E5-4C28-B502-0D62E2D1E298}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Debug|x64.ActiveCfg = Debug|x64
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Debug|x64.Build.0 = Debug|x64
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Debug|x86.Build.0 = Debug|Win32
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Release|x64.ActiveCfg = Release|x64
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Release|x64.Build.0 = Release|x64
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Release|x86.ActiveCfg = Release|Win32
+		{32F3DA04-9616-40FA-974B-39B87D2AB8C8}.Release|x86.Build.0 = Release|Win32
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Debug|x64.ActiveCfg = Debug|x64
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Debug|x64.Build.0 = Debug|x64
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Debug|x86.ActiveCfg = Debug|Win32
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Debug|x86.Build.0 = Debug|Win32
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Release|x64.ActiveCfg = Release|x64
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Release|x64.Build.0 = Release|x64
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Release|x86.ActiveCfg = Release|Win32
+		{609F0EB1-BD13-4BF2-B241-A63C97254DBC}.Release|x86.Build.0 = Release|Win32
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Debug|x64.ActiveCfg = Debug|x64
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Debug|x64.Build.0 = Debug|x64
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Debug|x86.Build.0 = Debug|Win32
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Release|x64.ActiveCfg = Release|x64
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Release|x64.Build.0 = Release|x64
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Release|x86.ActiveCfg = Release|Win32
+		{D9347174-F50F-4659-A33E-AFE2FB89B4E2}.Release|x86.Build.0 = Release|Win32
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Debug|x64.ActiveCfg = Debug|x64
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Debug|x64.Build.0 = Debug|x64
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Debug|x86.ActiveCfg = Debug|Win32
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Debug|x86.Build.0 = Debug|Win32
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Release|x64.ActiveCfg = Release|x64
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Release|x64.Build.0 = Release|x64
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Release|x86.ActiveCfg = Release|Win32
+		{E2969EDB-63D8-4C9D-91F7-7B9EE9389F32}.Release|x86.Build.0 = Release|Win32
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Debug|x64.ActiveCfg = Debug|x64
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Debug|x64.Build.0 = Debug|x64
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Debug|x86.ActiveCfg = Debug|Win32
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Debug|x86.Build.0 = Debug|Win32
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Release|x64.ActiveCfg = Release|x64
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Release|x64.Build.0 = Release|x64
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Release|x86.ActiveCfg = Release|Win32
+		{59F72E57-97D7-40F9-9EBB-C44454519735}.Release|x86.Build.0 = Release|Win32
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Debug|x64.ActiveCfg = Debug|x64
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Debug|x64.Build.0 = Debug|x64
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Debug|x86.ActiveCfg = Debug|Win32
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Debug|x86.Build.0 = Debug|Win32
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Release|x64.ActiveCfg = Release|x64
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Release|x64.Build.0 = Release|x64
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Release|x86.ActiveCfg = Release|Win32
+		{E52B0D78-D860-4400-B21E-91696605FDE2}.Release|x86.Build.0 = Release|Win32
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Debug|x64.ActiveCfg = Debug|x64
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Debug|x64.Build.0 = Debug|x64
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Debug|x86.ActiveCfg = Debug|Win32
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Debug|x86.Build.0 = Debug|Win32
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x64.ActiveCfg = Release|x64
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x64.Build.0 = Release|x64
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x86.ActiveCfg = Release|Win32
+		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB272175-D422-458E-B0BD-BCDE7F1FBE0D}
+	EndGlobalSection
+EndGlobal
