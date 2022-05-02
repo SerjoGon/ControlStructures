@@ -16,6 +16,7 @@ for (int i = 0; i < n; i++)
 	}
 }
 int* push_back(int* arr, int n, int num);
+int* push_front(int* arr, int n, int num);
 
 void main()
 {
@@ -40,6 +41,8 @@ void main()
 	parr[0] = num;*/
 
 	Print(arr, n+1);
+	arr = push_front(arr, n,num);
+	Print(arr, n+1);
 	delete[] arr;
 	//delete[] parr;
 }
@@ -53,6 +56,19 @@ int* push_back(int* arr, int n, int num)
 	}
 	delete[] arr;
 	parr[n++] = num;
+	arr = parr;
+	return arr;
+}
+int* push_front(int* arr, int n, int num)
+{
+	int* parr = arr;
+	parr = new int[n + 1]{};
+	for (int i = 1; i <= n;i++)
+	{
+		parr[i] = arr[i-1];
+	}
+	delete[] arr;
+	parr[0] = num;
 	arr = parr;
 	return arr;
 }
