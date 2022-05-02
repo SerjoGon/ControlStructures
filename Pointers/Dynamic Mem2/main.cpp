@@ -15,20 +15,44 @@ for (int i = 0; i < n; i++)
 		arr[i] = rand() % (n * n);
 	}
 }
+int* push_back(int* arr, int n, int num);
+
 void main()
 {
 	setlocale(LC_ALL, "RU");
 
 	int n; 
-	int d;
-	cout << "Input number:"; cin >> n;
-	cout << "Input number for last elem of array:"; cin >> d;
+	int num;
+	cout << "¬ведите количество элементов массива: "; cin >> n;
 	int* arr = new int[n];
 	Fillrand(arr, n);
 	Print(arr, n);
-	arr[n++];
-	//arr[n] += d;
-	Fillrand(arr, n);
-	Print(arr, n);
+	cout << "¬ведите дополнительный элемент массива. "; cin >> num;
+	//n++;
+	//Print(parr, n + 1);
+	arr = push_back(arr, n,num);
+	//n++;
+	// ¬ариант дл€ записи в первую €чейку
+	/*for (int i = 1; i < n ;i++)
+	{
+		parr[i] = arr[i -1];
+	}
+	parr[0] = num;*/
+
+	Print(arr, n+1);
 	delete[] arr;
+	//delete[] parr;
+}
+int* push_back(int* arr, int n, int num)
+{
+	int* parr = arr;
+	parr = new int[n + 1]{};
+	for (int i = 0; i < n;i++)
+	{
+		parr[i] = arr[i];
+	}
+	delete[] arr;
+	parr[n++] = num;
+	arr = parr;
+	return arr;
 }

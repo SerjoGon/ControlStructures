@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hanoi tower", "Hanoi tower\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dynamic Mem2", "Dynamic Mem2\Dynamic Mem2.vcxproj", "{43562BB2-66E5-4C28-B502-0D62E2D1E298}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TransmitParameters", "TransmitParameters\TransmitParameters.vcxproj", "{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x64.Build.0 = Release|x64
 		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x86.ActiveCfg = Release|Win32
 		{43562BB2-66E5-4C28-B502-0D62E2D1E298}.Release|x86.Build.0 = Release|Win32
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Debug|x64.ActiveCfg = Debug|x64
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Debug|x64.Build.0 = Debug|x64
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Debug|x86.ActiveCfg = Debug|Win32
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Debug|x86.Build.0 = Debug|Win32
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Release|x64.ActiveCfg = Release|x64
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Release|x64.Build.0 = Release|x64
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Release|x86.ActiveCfg = Release|Win32
+		{6892B46E-FA6E-4FE6-BB3E-317415E50DFF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
