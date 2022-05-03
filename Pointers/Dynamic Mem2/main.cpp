@@ -44,7 +44,6 @@ void main()
 	arr = push_front(arr, n,num);
 	Print(arr, n+1);
 	delete[] arr;
-	//delete[] parr;
 }
 int* push_back(int* arr, int n, int num)
 {
