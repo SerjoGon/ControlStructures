@@ -22,6 +22,13 @@ int* PoP_back(int* arr, int& n);
 int** pop_row_back(int** arr, int& rows, int& cols);
 int* PoP_front(int* arr, int& n);
 int** pop_row_front(int** arr, int& rows, int& cols);
+int** push_col_back(int** arr, const int rows, int& cols);
+int** push_col_front(int** arr, const int rows, int& cols);
+int** insert_cols(int** arr, const int rows, int& cols, int& index);
+int** erase_cols(int** arr, const int rows, int& cols, int& index);
+int** pop_cols_back(int** arr, const int rows, int& cols);
+int** pop_cols_front(int** arr, const int rows, int& cols);
+
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
 void main()
@@ -88,6 +95,20 @@ void main()
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	cout << "¬ведите индекс строки дл€ удалени€ из массива от ( 0 до " << rows << " )"; cin >> index;cout << endl;
 	arr = erase_row(arr, rows, cols, index);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	arr = push_col_back(arr, rows, cols);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	arr = push_col_front(arr, rows, cols);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	cout << "¬ведите индекс добавочного столбца от ( 0 до " << cols << " )"; cin >> index;cout << endl;
+	arr = insert_cols(arr, rows, cols, index);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	arr = pop_cols_back(arr, rows, cols);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	arr = pop_cols_front(arr, rows, cols);
+	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
+	cout << "¬ведите индекс удал€емого столбца от ( 0 до " << cols -1 << " )"; cin >> index;cout << endl;
+	arr = erase_cols(arr, rows, cols, index);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	//4) удал€ю динамический массив
 	Clear(arr, rows, cols);
@@ -187,7 +208,6 @@ int** push_row_back(int** arr, int& rows, int& cols)
 	}
 	delete[] arr;
 	arr = buffer;
-
 	return buffer;
 }
 int** push_row_front(int** arr, int& rows, int& cols)
@@ -204,7 +224,7 @@ int** push_row_front(int** arr, int& rows, int& cols)
 			else buffer[i][j] = rand() % 22;
 		}
 	}
-
+	delete[] arr;
 	return buffer;
 }
 int* push_front(int* arr, int& n, int num)
@@ -248,14 +268,15 @@ int** InsertRow(int** arr, int& rows, int& cols, int& index)
 	}*/
 	for (int i = 0; i < rows;i++)
 	{
-		buffer[i] = new int[cols] {}; 
+		buffer[i] = new int[cols] {};
 		for (int j = 0; j < cols;j++)
 		{
 			if (i < index) buffer[i][j] = arr[i][j];
-			else if(i == index) buffer[i][j] = rand() % 22;
-			else buffer[i][j] = arr[i-1][j];
+			else if (i == index) buffer[i][j] = rand() % 22;
+			else buffer[i][j] = arr[i - 1][j];
 		}
 	}
+	delete[] arr;
 	return buffer;
 }
 int* Erase(int* arr, int& n, int& index)
@@ -322,6 +343,7 @@ int** pop_row_back(int** arr, int& rows, int& cols)
 			buffer[i][j] = arr[i][j];
 		}
 	}
+	delete[] arr;
 	return buffer;
 }
 int** pop_row_front(int** arr, int& rows, int& cols)
@@ -333,8 +355,124 @@ int** pop_row_front(int** arr, int& rows, int& cols)
 		buffer[i] = new int[cols] {};
 		for (int j = 0; j < cols; j++)
 		{
-			buffer[i][j] = arr[i+1][j];
+			buffer[i][j] = arr[i + 1][j];
 		}
 	}
+	delete[] arr;
+	return buffer;
+}
+int** push_col_back(int** arr, const int rows, int& cols)
+{
+	cols++;
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols + 1]{};
+		for (int j = 0; j < cols; j++)
+		{
+			buffer[i][j] = arr[i][j];
+		}
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = cols - 1; j < cols; j++)
+		{
+			buffer[i][j] = rand() / 100;
+		}
+	}
+	delete[] arr;
+	return buffer;
+}
+int** push_col_front(int** arr, const int rows, int& cols)
+{
+	cols++;
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols + 1]{};
+		for (int j = 0; j < cols; j++)
+		{
+			buffer[i][j + 1] = arr[i][j];
+		}
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < 1; j++)
+		{
+			buffer[i][j] = rand() / 100;
+		}
+	}
+	delete[] arr;
+	return buffer;
+}
+int** insert_cols(int** arr, const int rows, int& cols, int& index)
+{
+	cols++;
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols + 1]{};
+		for (int j = 0; j < cols; j++)
+		{
+			if (j < index)buffer[i][j] = arr[i][j];
+			else if (j == index)buffer[i][j] = rand() / 100;
+			else if (j > index)buffer[i][j] = arr[i][j - 1];
+
+		}
+	}
+	delete[] arr;
+	return buffer;
+}
+int** pop_cols_back(int** arr, const int rows, int& cols)
+{
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols-1]{};
+		for (int j = 0; j < cols -1 ; j++)
+		{
+			buffer[i][j] = arr[i][j];
+		}
+	}
+	cols--;
+	delete[] arr;
+	return buffer;
+}
+int** pop_cols_front(int** arr, const int rows, int& cols)
+{
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols - 1]{};
+		for (int j = 0; j < cols; j++)
+		{
+			buffer[i][j] = arr[i][j +1];
+		}
+	}
+	cols--;
+	delete[] arr;
+	return buffer;
+}
+int** erase_cols(int** arr, const int rows, int& cols, int& index)
+{
+	int** buffer = arr;
+	buffer = new int* [rows];
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = new int[cols - 1]{};
+		for (int j = 0; j < cols; j++)
+		{
+			if (j < index)buffer[i][j] = arr[i][j];
+			else if(j >= index)buffer[i][j] = arr[i][j + 1];
+
+		}
+	}
+	cols--;
+	delete[] arr;
 	return buffer;
 }
