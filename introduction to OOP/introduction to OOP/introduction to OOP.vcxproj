@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{314dbb57-9d31-483b-81a7-a8fe336b8fc1}</ProjectGuid>
-    <RootNamespace>DynamicMEM2</RootNamespace>
+    <ProjectGuid>{037fe455-2dbc-432e-a362-361cb311a4d7}</ProjectGuid>
+    <RootNamespace>introductiontoOOP</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,25 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Allocate.cpp" />
-    <ClCompile Include="Clean.cpp" />
-    <ClCompile Include="Erase.cpp" />
-    <ClCompile Include="Fillrand.cpp" />
-    <ClCompile Include="Insert_all.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pop_all.cpp" />
-    <ClCompile Include="Print.cpp" />
-    <ClCompile Include="Push_all.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Allocate.h" />
-    <ClInclude Include="Clean.h" />
-    <ClInclude Include="Erase_all.h" />
-    <ClInclude Include="Fillrand.h" />
-    <ClInclude Include="Insert_all.h" />
-    <ClInclude Include="pop_all.h" />
-    <ClInclude Include="Print.h" />
-    <ClInclude Include="Push_all.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
