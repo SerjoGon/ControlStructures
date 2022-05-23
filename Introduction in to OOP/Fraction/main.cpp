@@ -148,6 +148,12 @@ public:
 		if (this->INT == 0)cout << num << '/' << den << endl;
 		else cout << INT << "(" << num << "/" << den << ")" << endl;
 	}
+	//Fraction inverted()
+	//{
+	//	Fraction inverted = *this;
+	//	inverted.to_improper();
+	//	int buffer = inverted.numer
+	//}
 };
 //Greates common divisor - НОД - наибольший общий делитель (из переводчика гугл)
 int GCD(int l_den, int r_den)
