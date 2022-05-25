@@ -3,6 +3,12 @@ using std::cout;
 using std::cin;
 using std::endl;
 //#define CHECK
+//#define CONVERSIONS_FROM_OTHER_TO_CLASS
+#define CONVERSIONS_FROM_CLASS_TO_OTHER
+class Fraction;
+Fraction operator*(Fraction left, Fraction right);
+Fraction operator/(Fraction left, Fraction right);
+
 class Fraction
 {
 	int INT; //integer целое число 
@@ -42,7 +48,7 @@ public:
 		this->den = 0;
 		cout << "DEFConstructor: \t" << this << endl;
 	}
-	Fraction(int INT)
+	explicit Fraction(int INT)
 	{
 		this->INT = INT;
 		this->num = 0;
@@ -108,6 +114,14 @@ public:
 		cout << "CopyAssignment:\t" << this << endl;
 		return *this;
 	}
+	Fraction& operator*=(const Fraction& other)
+	{
+		return *this = *this * other;
+	}
+	Fraction& operator/=(const Fraction& other)
+	{
+		return *this = *this / other;
+	}
 	/*Fraction& operator-=(Fraction other)
 	{
 		int INT = other.INT;
@@ -123,17 +137,28 @@ public:
 		return *this;
 
 	}*/
+	//Type - cast operators:
+	explicit operator int()const
+	{
+		return INT;
+	}
+	explicit operator double()const
+	{
+		return INT + (double)num / den;
+	}
+	
 	// Methods
-
-	void to_proper()// переводит в правильную дробь(выделяет целую часть )
+	Fraction& to_proper()// переводит в правильную дробь(выделяет целую часть )
 	{
 		INT += num / den;
 		num %= den;
+		return *this;
 	}
-	void to_improper()// переводит в неправильную дробь(убирает целую часть )
+	Fraction& to_improper()// переводит в неправильную дробь(убирает целую часть )
 	{
 		num += INT * den;
 		INT = 0;
+		return *this;
 	}
 	void print()const
 	{
@@ -148,12 +173,15 @@ public:
 		if (this->INT == 0)cout << num << '/' << den << endl;
 		else cout << INT << "(" << num << "/" << den << ")" << endl;
 	}
-	//Fraction inverted()
-	//{
-	//	Fraction inverted = *this;
-	//	inverted.to_improper();
-	//	int buffer = inverted.numer
-	//}
+	Fraction inverted()const
+	{
+		Fraction inverted = *this;
+		inverted.to_improper();
+		int buffer = inverted.num;
+		inverted.num = inverted.den;
+		inverted.den = buffer;
+		return inverted;
+	}
 };
 //Greates common divisor - НОД - наибольший общий делитель (из переводчика гугл)
 int GCD(int l_den, int r_den)
@@ -175,9 +203,9 @@ int multiplier(int l_den, int r_den, int den)
 	return LCM(l_den, r_den) / den;
 }
 
-Fraction operator+(Fraction& left, Fraction& right)
+Fraction operator+(const Fraction& left, const Fraction& right)
 {
-	Fraction result;
+	/*Fraction result;
 	Fraction fract_1;
 	Fraction fract_2;
 	int l_den = left.get_den();
@@ -189,11 +217,17 @@ Fraction operator+(Fraction& left, Fraction& right)
 	result.set_INT(left.get_INT() + right.get_INT());
 	result.set_num(fract_1.get_num() + fract_2.get_num());
 	result.set_den(fract_1.get_den());
-	return result;
+	return result;*/
+	return Fraction
+	(
+		left.get_INT() + right.get_INT(),
+		left.get_num() * right.get_den() + right.get_num()*left.get_den(),
+		left.get_den()* right.get_den()
+	).to_proper();
 }
-Fraction operator-(Fraction& left, Fraction& right)
+Fraction operator-(const Fraction& left,const Fraction& right)
 {
-	Fraction result;
+	/*Fraction result;
 	Fraction fract_1;
 	Fraction fract_2;
 	int l_den = left.get_den();
@@ -205,7 +239,13 @@ Fraction operator-(Fraction& left, Fraction& right)
 	result.set_INT(left.get_INT() - right.get_INT());
 	result.set_num(fract_1.get_num() - fract_2.get_num());
 	result.set_den(fract_1.get_den());
-	return result;
+	return result;*/
+	return Fraction
+	(
+		left.get_INT() - right.get_INT(),
+		left.get_num() * right.get_den() - right.get_num() * left.get_den(),
+		left.get_den() * right.get_den()
+	).to_proper();
 }
 Fraction operator*( Fraction left, Fraction right)
 {
@@ -225,17 +265,18 @@ Fraction operator*( Fraction left, Fraction right)
 	(
 		left.get_num() * right.get_num(),
 		left.get_den() * right.get_den()
-	);
+	).to_proper();
 }
 Fraction operator/(Fraction left, Fraction right)
 {
-	left.to_improper();
+	/*left.to_improper();
 	right.to_improper();
 	return Fraction
 	(
 		left.get_num() * right.get_den(),
 		left.get_den() * right.get_num()
-	);
+	);*/
+	return left.to_improper() * right.inverted();
 }
 
 void main()
@@ -257,14 +298,14 @@ void main()
 			break;
 	}
 	Fraction B(INT, num, den);*/
-	Fraction A(1,2,3);
+	/*Fraction A(1,2,3);
 	Fraction B(2,3,4);
 	A.to_improper();
 	B.to_improper();
 	A.print();
 	B.print();
 	Fraction C = A * B;
-	C.print();
+	C.print();*/
 #ifdef CHECK
 		cout << "Проверка инкремента:" << endl;
 	A++;
@@ -274,9 +315,22 @@ void main()
 	Fraction E = B;
 	E.print();
 #endif // CHECK
-	Fraction D = C / A;
-	D.print();
-	Fraction M = C + D;
-	M.print();
+#ifdef CONVERSIONS_FROM_OTHER_TO_CLASS
 
+	Fraction A = (Fraction)(5); // Conversion from int to Fraction
+	A.print();
+	cout << "\n----------------------------------------\n";
+	Fraction B;
+	B = (Fraction)8;
+	B.print();
+	cout << "\n----------------------------------------\n";
+#endif // CONVERSIONS_FROM_OTHER_TO_CLASS
+#ifdef CONVERSIONS_FROM_CLASS_TO_OTHER
+	Fraction A = Fraction(2,3,4);
+	int a = (int)A;
+	double b = (double)A;
+	cout << a<< endl;
+	cout << b<< endl;
+
+#endif // CONVERSIONS_FROM_CLASS_TO_OTHER
 }
