@@ -1,4 +1,4 @@
-#pragma warning (disable:4326)
+п»ї#pragma warning (disable:4326)
 #include<iostream>
 using namespace std;
 using std::cin;
@@ -12,9 +12,9 @@ Fraction operator*(Fraction left, Fraction right);
 
 class Fraction
 {
-	int integer;		//целая часть
-	int numerator;		//числитель
-	int denominator;	//знаменатель
+	int integer;		//С†РµР»Р°СЏ С‡Р°СЃС‚СЊ
+	int numerator;		//С‡РёСЃР»РёС‚РµР»СЊ
+	int denominator;	//Р·РЅР°РјРµРЅР°С‚РµР»СЊ
 public:
 	int get_integer()const
 	{
@@ -51,7 +51,7 @@ public:
 		cout << "DefConstructor:\t" << this << endl;
 	}
 	explicit Fraction(int integer)
-		//	явный
+		//	СЏРІРЅС‹Р№
 	{
 		this->integer = integer;
 		this->numerator = 0;
@@ -131,14 +131,14 @@ public:
 	//				Methods:
 	Fraction& to_proper()
 	{
-		//TODO: переводит дробь в правильную (выделяет целую часть)
+		//TODO: РїРµСЂРµРІРѕРґРёС‚ РґСЂРѕР±СЊ РІ РїСЂР°РІРёР»СЊРЅСѓСЋ (РІС‹РґРµР»СЏРµС‚ С†РµР»СѓСЋ С‡Р°СЃС‚СЊ)
 		integer += numerator / denominator;
 		numerator %= denominator;
 		return *this;
 	}
 	Fraction& to_improper()
 	{
-		//TODO: переводит дробь в неправильную (выделяет целую часть)
+		//TODO: РїРµСЂРµРІРѕРґРёС‚ РґСЂРѕР±СЊ РІ РЅРµРїСЂР°РІРёР»СЊРЅСѓСЋ (РІС‹РґРµР»СЏРµС‚ С†РµР»СѓСЋ С‡Р°СЃС‚СЊ)
 		numerator += integer * denominator;
 		integer = 0;
 		return *this;
@@ -360,8 +360,8 @@ void main()
 #ifdef TYPE_CONVERSIONS_BASE
 	/*
 --------------------------------------
-(type)value;	//C_like notation (C-подобная форма записи)
-type(value);	//Functional notation (функциональная форма записи)
+(type)value;	//C_like notation (C-РїРѕРґРѕР±РЅР°СЏ С„РѕСЂРјР° Р·Р°РїРёСЃРё)
+type(value);	//Functional notation (С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅР°СЏ С„РѕСЂРјР° Р·Р°РїРёСЃРё)
 --------------------------------------
 */
 //				r-value
