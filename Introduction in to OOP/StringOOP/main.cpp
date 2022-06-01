@@ -1,47 +1,90 @@
 #include<iostream>
-#include<Windows.h>
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
-class String;
-
-class String
+class string
 {
-	int SIZE;
+	int size;
 	char* str;
 public:
-	int get_SIZE()const
+	//					GET_METHODS:
+	int get_size()const { return size; }
+	const char* get_str()const { return str; }
+	char* get_str() { return str; }
+	//					CONSTRUCTORS:
+	explicit string(int size = 80)
 	{
-		return SIZE;
+		this->size = size;
+		this->str = new char[size]{};
+		printf("DEFConstructor:\t%p\n", this);
 	}
-	char get_str()const
+	string(const char* str)
 	{
-		return *str;
+		this->size = strlen(str)+1;
+		this->str = new char[size]{};
+		for (int i = 0; i < size; i++) this->str[i] = str[i];
+		printf("Constructor:\t%p\n", this);
 	}
-	int set_SIZE(int SIZE)
+	string(const string& other)
 	{
-		return this->SIZE = SIZE;
+		this->size = other.size;
+		this->str = new char[size];
+		for (int i = 0;i < size;i++) this->str[i] = other.str[i];
+		printf("CopyConstructor:\t%p\n", this);
+
 	}
-	char  set_str(char str)
+	~string()
 	{
-		return *this->str = str;
+		delete[] this->str;
+		printf("Destructor:\t%p\n", this);
 	}
-	//				Constructors:
-	String()
+	//					OPERATORS:
+	string& operator=(const string& other)
 	{
-		this->SIZE = 256;
-		this->str[SIZE] = {};
+		if (this == &other)return *this;
+		delete[] this->str;
+		this->size = other.size;
+		this->str = new char[size] {};
+		for (int i = 0; i < size; i++) this->str[i] = other.str[i];
+		printf("CopyAssigment:\t%p\n", this);
+		return *this;
 	}
-	String(int SIZE, char* str)
+	const char& operator[](int i)const { return str[i]; }
+	char& operator[](int i){ return str[i]; }
+	string operator+=(const string& other)
 	{
-		this->SIZE = new int SIZE;
+		return *this = *this + other;
+	}
+	//					METHODS:
+	void print()const
+	{
+		printf("Size:\t%d\nStr:\t%s\n", size, str);
 	}
 };
+
+string operator+(const string& left, const string& right)
+{
+	string cat(left.get_size()+right.get_size()-1);
+	for (int i = 0; i < left.get_size(); i++) cat[i] = left[i];
+	for (int i = 0; i < right.get_size();i++) cat[i + left.get_size() - 1] = right[i];
+	return cat;
+}
+std::ostream& operator<<(std::ostream& os, const string& obj) 
+{
+	return os << obj.get_str(); 
+}
 
 
 void main()
 {
 	setlocale(LC_ALL, "RU");
-
+	string word1("Hello");
+	string word2("World!");
+	word1 += word2;
+	word1.print();
+	string str1 = "Operator";
+	string str2(" Check");
+	/*str1 += str2;
+	cout << str1 << endl;*/
 }
