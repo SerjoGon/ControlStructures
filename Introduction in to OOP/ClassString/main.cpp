@@ -35,6 +35,15 @@ public:
 		for (int i = 0; i < size; i++) this->str[i] = other.str[i];
 		cout << "CopyConstrucor:\t" << this << endl;
 	}
+	String(String&& other)
+	{
+		// MoveConstructor выполняет ShellowCopy (Поверхностное копирование)
+		this->size = other.size;
+		this->str = other.str;// копируем адрес памяти другого обьекта
+		other.size = 0;
+		other.str = nullptr; // зануляем адрес памяти в др обьекте что бы его не удалил деструктор
+		cout << "MoveConstructor:\t" << this << endl;
+	}
 	~String()
 	{
 		delete[] this->str;
@@ -49,6 +58,16 @@ public:
 		this->str = new char[size] {};
 		for (int i = 0; i < size;i++)this->str[i] = other.str[i];
 		cout << "CopyAssigment: \t" << this << endl;
+		return *this;
+	}
+	String& operator=(String&& other)
+	{
+		delete[] this->str;
+		this->size = other.size;
+		this->str = other.str;
+		other.size = 0;
+		other.str = nullptr;
+		cout << "MoveAssignment:\t" << this << endl;
 		return *this;
 	}
 	 const char& operator[](int i)const
@@ -87,7 +106,15 @@ std::ostream& operator<< (std::ostream& os, const String& obj)
 {
 	return os << obj.get_str();
 }
+std::istream& operator>>(std::istream& is, String& obj)
+{
+	const int size = 256;
+	char buffer[size] = {};
+	is >> buffer;
+	obj = buffer;
+	return is;
 
+}
 void main()
 {
 	setlocale(LC_ALL, "RU");
@@ -110,6 +137,8 @@ void main()
 
 	String str1 = "Hello";
 	String str2("World");
-	String str3 = str1 + " " + str2;
+	//String str3 = str1 + str2; // moveconstructor
+	String str3;
+	str3 = str1 + str2;
 	str3.Print();
 }
