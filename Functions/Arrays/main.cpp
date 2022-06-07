@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 #include"Conctants.h"
 #include"Fillrand.h"
@@ -16,14 +16,14 @@ void main()
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(arr, n) << endl;
-	cout << "Ñðåäíåå àðèôìåòè÷åñêîå ýëåìåíòîâ ìàññèâà :" << AVG(arr, n) << endl;
-	cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà: " << MIN(arr, n) << endl;
-	cout << "Ìàêñèìàëüíîå çíà÷åíèå ìàññèâà: " << MAX(arr, n) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(arr, n) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° :" << AVG(arr, n) << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << MIN(arr, n) << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << MAX(arr, n) << endl;
 	int shiftsR;
 	int shiftsL;
-	cout << "Ââåäèòå êîëè÷åñâòî ñäâèãîâ ìàññèâà âïðàâî:"; cin >> shiftsR;
-	cout << "Ââåäèòå êîëè÷åñòâî ñäâèãîâ:"; cin >> shiftsL;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÐ²Ñ‚Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° Ð²Ð¿Ñ€Ð°Ð²Ð¾:"; cin >> shiftsR;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ´Ð²Ð¸Ð³Ð¾Ð²:"; cin >> shiftsL;
 	ShiftR(arr, n, shiftsR);
 	Print(arr, n);
 	ShiftL(arr, n, shiftsL);
@@ -37,10 +37,10 @@ void main()
 	Print(brr, m);
 	Sort(brr, m);
 	Print(brr, m);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà: " << Sum(brr, m) << endl;
-	cout << "Ñðåäíåå àðèôìåòè÷åñêîå ýëåìåíòîâ ìàññèâà :" << AVG(brr, m) << endl;
-	cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà: " << MIN(brr, m) << endl;
-	cout << "Ìàêñèìàëüíîå çíà÷åíèå ìàññèâà: " << MAX(brr, m) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << Sum(brr, m) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð° :" << AVG(brr, m) << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << MIN(brr, m) << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°: " << MAX(brr, m) << endl;
 	cout << delimetr << endl;
 
 	int arr2[ROWS][COLS];
@@ -50,10 +50,10 @@ void main()
 	Print(arr2, ROWS, COLS);
 	Sort(arr2, ROWS, COLS);
 	Print(arr2, ROWS, COLS);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà:" << Sum(arr2, ROWS, COLS) << endl;
-	cout << "Ñðåäíåå àðèôìåòè÷åñêîå ýëåìåíòîâ ìàññèâà:" << AVG(arr2, ROWS, COLS) << endl;
-	cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà:" << MIN(arr2, ROWS, COLS) << endl;
-	cout << "Ìàêñèìàëüíîå çíà÷åíèå ìàññèâà:" << MAX(arr2, ROWS, COLS) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << Sum(arr2, ROWS, COLS) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << AVG(arr2, ROWS, COLS) << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << MIN(arr2, ROWS, COLS) << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << MAX(arr2, ROWS, COLS) << endl;
 	cout << delimetr << endl;
 
 	Fillrand(arr3, ROW, COL);
@@ -61,10 +61,10 @@ void main()
 	Sort(arr3, ROW, COL);
 	cout << delimetr << endl;
 	Print(arr3, ROW, COL);
-	cout << "Ñóììà ýëåìåíòîâ ìàññèâà:" << Sum(arr3, ROW, COL) << endl;
-	cout << "Ñðåäíåå àðèôìåòè÷åñêîå ýëåìåíòîâ ìàññèâà:" << AVG(arr3, ROW, COL) << endl;
-	cout << "Ìèíèìàëüíîå çíà÷åíèå ìàññèâà:" << MIN(arr3, ROW, COL) << endl;
-	cout << "Ìàêñèìàëüíîå çíà÷åíèå ìàññèâà:" << MAX(arr3, ROW, COL) << endl;
+	cout << "Ð¡ÑƒÐ¼Ð¼Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << Sum(arr3, ROW, COL) << endl;
+	cout << "Ð¡Ñ€ÐµÐ´Ð½ÐµÐµ Ð°Ñ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << AVG(arr3, ROW, COL) << endl;
+	cout << "ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << MIN(arr3, ROW, COL) << endl;
+	cout << "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ð°:" << MAX(arr3, ROW, COL) << endl;
 	cout << delimetr << endl;
 	Fillrand(arr4, ROW, COL);
 	Print(arr4, ROW, COL);
