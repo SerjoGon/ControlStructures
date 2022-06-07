@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 //using namespace std;
 using std::cout;
 using std::cin;
@@ -37,31 +37,31 @@ void main()
 #ifdef DYNAMIC_MEMORY_1
 	int n;
 	int num;
-	cout << "Ââåäèòå êîëè÷åñòâî ıëåìåíòîâ ìàññèâà: "; cin >> n;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ² Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°: "; cin >> n;
 	int* arr = new int[n];
 	Fillrand(arr, n);
 	Print(arr, n);
-	cout << "Ââåäèòå äîïîëíèòåëüíûé ıëåìåíò ìàññèâà. "; cin >> num;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ñ‚ĞµĞ»ÑŒĞ½Ñ‹Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°. "; cin >> num;
 
 	arr = push_back(arr, n, num);
 	Print(arr, n);
 
-	cout << "Ââåäèòå äîïîëíèòåëüíûé ıëåìåíò ìàññèâà. "; cin >> num;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ñ‚ĞµĞ»ÑŒĞ½Ñ‹Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°. "; cin >> num;
 	arr = push_front(arr, n, num);
 	Print(arr, n);
 
 	int index;
-	cout << "Ââåäèòå äîïîëíèòåëüíûé ıëåìåíò ìàññèâà. "; cin >> num;
-	cout << "Óêàæèòå ÿ÷åéêó ìàññèâà â êîòîğóş ğàçìåñòèòü äîï. ıëåìåíò ÷èñëî îò ( 0 äî " << n << ")";cin >> index;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ´Ğ¾Ğ¿Ğ¾Ğ»Ğ½Ğ¸Ñ‚ĞµĞ»ÑŒĞ½Ñ‹Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°. "; cin >> num;
+	cout << "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ ÑÑ‡ĞµĞ¹ĞºÑƒ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° Ğ² ĞºĞ¾Ñ‚Ğ¾Ñ€ÑƒÑ Ñ€Ğ°Ğ·Ğ¼ĞµÑÑ‚Ğ¸Ñ‚ÑŒ Ğ´Ğ¾Ğ¿. ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << n << ")";cin >> index;
 	arr = Insert(arr, n, num, index);
 	Print(arr, n);
-	cout << "Óäàëÿş ïîñëåäíèé ıëåìåíò ìàññèâà:";
+	cout << "Ğ£Ğ´Ğ°Ğ»ÑÑ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ½Ğ¸Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:";
 	arr = PoP_back(arr, n);
 	Print(arr, n);
-	cout << "Óäàëÿş ïåğâûé ıëåìåíò ìàññèâà:";
+	cout << "Ğ£Ğ´Ğ°Ğ»ÑÑ Ğ¿ĞµÑ€Ğ²Ñ‹Ğ¹ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:";
 	arr = PoP_front(arr, n);
 	Print(arr, n);
-	cout << "Óêàæèòå ÿ÷åéêó ìàññèâà êîòîğóş õîòèòå óäàëèòü ÷èñëî îò ( 0 äî " << n << " ) ";cin >> index;
+	cout << "Ğ£ĞºĞ°Ğ¶Ğ¸Ñ‚Ğµ ÑÑ‡ĞµĞ¹ĞºÑƒ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° ĞºĞ¾Ñ‚Ğ¾Ñ€ÑƒÑ Ñ…Ğ¾Ñ‚Ğ¸Ñ‚Ğµ ÑƒĞ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << n << " ) ";cin >> index;
 	arr = Erase(arr, n, index);
 	Print(arr, n);
 	delete[] arr;
@@ -71,48 +71,48 @@ void main()
 	int rows;
 	int cols;
 	int index;
-	cout << "Ââåäèòå êîëè÷åñòâî ñòğîê: "; cin >> rows;
-	cout << "Ââåäèòå êîëè÷åñòâî ıëåìåíòîâ â ñòîêàõ: "; cin >> cols;cout << endl;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ÑÑ‚Ñ€Ğ¾Ğº: "; cin >> rows;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ ÑĞ»ĞµĞ¼ĞµĞ½Ñ‚Ğ¾Ğ² Ğ² ÑÑ‚Ğ¾ĞºĞ°Ñ…: "; cin >> cols;cout << endl;
 	int** arr;
 	Allocate(arr, rows, cols);
 	Fillrand(arr, rows, cols);
-	cout << "Ìàññèâ âûâåäåí íà ıêğàí ïğè ïîìîùè àğèôìåòèêè óêàçàòåëåé:" << endl;
+	cout << "ĞœĞ°ÑÑĞ¸Ğ² Ğ²Ñ‹Ğ²ĞµĞ´ĞµĞ½ Ğ½Ğ° ÑĞºÑ€Ğ°Ğ½ Ğ¿Ñ€Ğ¸ Ğ¿Ğ¾Ğ¼Ğ¾Ñ‰Ğ¸ Ğ°Ñ€Ğ¸Ñ„Ğ¼ĞµÑ‚Ğ¸ĞºĞ¸ ÑƒĞºĞ°Ğ·Ğ°Ñ‚ĞµĞ»ĞµĞ¹:" << endl;
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Äîáàâëåíèå ñòğîêè â êîíåö ìàññèâà:" << endl;
+	cout << "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ² ĞºĞ¾Ğ½ĞµÑ† Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:" << endl;
 	arr = push_row_back(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Äîáàâëåíèå ñòğîêè â íà÷àëî ìàññèâà:" << endl;
+	cout << "Ğ”Ğ¾Ğ±Ğ°Ğ²Ğ»ĞµĞ½Ğ¸Ğµ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ² Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ¾ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:" << endl;
 	arr = push_row_front(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Ââåäèòå èíäåêñ äîáàâî÷íîé ñòğîêè ìàññèâà îò ( 0 äî " << rows << " )"; cin >> index;cout << endl;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¾Ñ‡Ğ½Ğ¾Ğ¹ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << rows << " )"; cin >> index;cout << endl;
 	arr = InsertRow(arr, rows, cols, index);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Óäàëåíèå ïîñëåäíåé ñòğîêè ìàññèâà:" << endl;
+	cout << "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ Ğ¿Ğ¾ÑĞ»ĞµĞ´Ğ½ĞµĞ¹ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:" << endl;
 	arr = pop_row_back(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Óäàëåíèå ïåğâîé ñòğîêè ìàññèâà:" << endl;
+	cout << "Ğ£Ğ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ Ğ¿ĞµÑ€Ğ²Ğ¾Ğ¹ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°:" << endl;
 	arr = pop_row_front(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Ââåäèòå èíäåêñ ñòğîêè äëÿ óäàëåíèÿ èç ìàññèâà îò ( 0 äî " << rows << " )"; cin >> index;cout << endl;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ´Ğ»Ñ ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ñ Ğ¸Ğ· Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ° Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << rows << " )"; cin >> index;cout << endl;
 	arr = erase_row(arr, rows, cols, index);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	arr = push_col_back(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	arr = push_col_front(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Ââåäèòå èíäåêñ äîáàâî÷íîãî ñòîëáöà îò ( 0 äî " << cols << " )"; cin >> index;cout << endl;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¾Ñ‡Ğ½Ğ¾Ğ³Ğ¾ ÑÑ‚Ğ¾Ğ»Ğ±Ñ†Ğ° Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << cols << " )"; cin >> index;cout << endl;
 	arr = insert_cols(arr, rows, cols, index);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	arr = pop_cols_back(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
 	arr = pop_cols_front(arr, rows, cols);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	cout << "Ââåäèòå èíäåêñ óäàëÿåìîãî ñòîëáöà îò ( 0 äî " << cols - 1 << " )"; cin >> index;cout << endl;
+	cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ğ¸Ğ½Ğ´ĞµĞºÑ ÑƒĞ´Ğ°Ğ»ÑĞµĞ¼Ğ¾Ğ³Ğ¾ ÑÑ‚Ğ¾Ğ»Ğ±Ñ†Ğ° Ğ¾Ñ‚ ( 0 Ğ´Ğ¾ " << cols - 1 << " )"; cin >> index;cout << endl;
 	arr = erase_cols(arr, rows, cols, index);
 	PRINTING_WITH_THE_MAGIC_OF_PONTERS(arr, rows, cols);
-	//4) óäàëÿş äèíàìè÷åñêèé ìàññèâ
+	//4) ÑƒĞ´Ğ°Ğ»ÑÑ Ğ´Ğ¸Ğ½Ğ°Ğ¼Ğ¸Ñ‡ĞµÑĞºĞ¸Ğ¹ Ğ¼Ğ°ÑÑĞ¸Ğ²
 	Clear(arr, rows, cols);
-	// Äëÿ ïğîâåğêè ôóíêöèè ìîæíî àêòèâèğîâàòü ïå÷àòü ìàññèâà
+	// Ğ”Ğ»Ñ Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ĞºĞ¸ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ Ğ°ĞºÑ‚Ğ¸Ğ²Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ¿ĞµÑ‡Ğ°Ñ‚ÑŒ Ğ¼Ğ°ÑÑĞ¸Ğ²Ğ°
 	//Print(arr, rows, cols);
 #endif // DYNAMIC_MEMORY_2
 }
