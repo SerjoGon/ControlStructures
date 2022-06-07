@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<conio.h>
 using namespace std;
 #define VERTICAL_SHIFT "\n\n\n\n\n"
@@ -19,14 +19,14 @@ void main()
 	do
 	{
 		InitField(field, n, 'O');
-		cout << "Åùå ðàç? Äà - ëþáàÿ êëàâèøà, Íåò - Escape" << endl;
+		cout << "Ð•Ñ‰Ðµ Ñ€Ð°Ð·? Ð”Ð° - Ð»ÑŽÐ±Ð°Ñ ÐºÐ»Ð°Ð²Ð¸ÑˆÐ°, ÐÐµÑ‚ - Escape" << endl;
 	} while (_getch() != 27);
 }
 void PrintField(char field[], const int n, char player)
 {
-	system("CLS"); // ýòà ôóíêöèÿ óìååò âûçûâàòü ëþáóþ êîìàíäó êîìàíäíîé ñòðîêè 
-	//òî÷íåå ëþáóþ ïðîãðàììó êîòîðóþ ìîæíî çàïóñòèòü ÷åðåç êîìàíäíóþ ñòðîêó
-	//(CLS) = clear screen - î÷èùàåò ýêðàí
+	system("CLS"); // ÑÑ‚Ð° Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ ÑƒÐ¼ÐµÐµÑ‚ Ð²Ñ‹Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð»ÑŽÐ±ÑƒÑŽ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñƒ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸ 
+	//Ñ‚Ð¾Ñ‡Ð½ÐµÐµ Ð»ÑŽÐ±ÑƒÑŽ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñƒ ÐºÐ¾Ñ‚Ð¾Ñ€ÑƒÑŽ Ð¼Ð¾Ð¶Ð½Ð¾ Ð·Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ñ‡ÐµÑ€ÐµÐ· ÐºÐ¾Ð¼Ð°Ð½Ð´Ð½ÑƒÑŽ ÑÑ‚Ñ€Ð¾ÐºÑƒ
+	//(CLS) = clear screen - Ð¾Ñ‡Ð¸Ñ‰Ð°ÐµÑ‚ ÑÐºÑ€Ð°Ð½
 
 	cout << VERTICAL_SHIFT;
 	for (int i = 6; i >= 0;i -= 3)
@@ -54,8 +54,8 @@ void Move(char field[], const int n, char player)
 	{
 		key = _getch();
 		if (key == 27)return;
-		if (key < '1' || key>'9') cout << "\a Âû ïëîõî íàæèìàåòå íà êíîïêè, áóäüòå âíèìàòåëüíû!!!\n ";
-		else if (field[key - 49] != ' ' && field[key - 49] != 0)cout << "\aÊëåòêà óæå çàíÿòà!!!\n";
+		if (key < '1' || key>'9') cout << "\a Ð’Ñ‹ Ð¿Ð»Ð¾Ñ…Ð¾ Ð½Ð°Ð¶Ð¸Ð¼Ð°ÐµÑ‚Ðµ Ð½Ð° ÐºÐ½Ð¾Ð¿ÐºÐ¸, Ð±ÑƒÐ´ÑŒÑ‚Ðµ Ð²Ð½Ð¸Ð¼Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹!!!\n ";
+		else if (field[key - 49] != ' ' && field[key - 49] != 0)cout << "\aÐšÐ»ÐµÑ‚ÐºÐ° ÑƒÐ¶Ðµ Ð·Ð°Ð½ÑÑ‚Ð°!!!\n";
 	} while ((key < '1' || key>'9') || (field[key - 49] != 0) && (field[key - 49] != ' '));
 	field[key - 49] = player;
 	PrintField(field, n, player);
@@ -77,7 +77,7 @@ void Check(char field[], const int n, char player)
 
 	if (game_over)
 	{
-		cout << player << " Ïîáåäèë!!!\n";
+		cout << player << " ÐŸÐ¾Ð±ÐµÐ´Ð¸Ð»!!!\n";
 		return;
 	}
 	bool draw = true;
@@ -91,7 +91,7 @@ void Check(char field[], const int n, char player)
 	}
 	if (draw)
 	{
-		cout << "Íè÷üÿ!!!"<< endl;
+		cout << "ÐÐ¸Ñ‡ÑŒÑ!!!"<< endl;
 		return;
 	}
 	//PrintField(field, n, player == 'X' ? 'O' : 'X');
