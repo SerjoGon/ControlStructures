@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<string>
 #include<Windows.h>
 using std::cout;
@@ -78,7 +78,7 @@ public:
 	void print()const
 	{
 		Human::print();
-		cout << "Ñïåöèàëèçàöèÿ - " << specialty << " Ãðóïïà - " << group << " " << year << "-é êóðñ " << rating << "% óñïåâàåìîñòü " << attendance << "% ïîñåùàåìîñòü" << endl;
+		cout << "Ð¡Ð¿ÐµÑ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ - " << specialty << " Ð“Ñ€ÑƒÐ¿Ð¿Ð° - " << group << " " << year << "-Ð¹ ÐºÑƒÑ€Ñ " << rating << "% ÑƒÑÐ¿ÐµÐ²Ð°ÐµÐ¼Ð¾ÑÑ‚ÑŒ " << attendance << "% Ð¿Ð¾ÑÐµÑ‰Ð°ÐµÐ¼Ð¾ÑÑ‚ÑŒ" << endl;
 	}
 };
 class Teacher :public Human
@@ -109,7 +109,7 @@ public:
 	void print()const
 	{
 		Human::print();
-		cout << "Ñïåöèàëèçàöèÿ - " << specialty << " Ñòàæ ïðåïîäàâàòåëÿ - " << experience << " ëåò" << endl;
+		cout << "Ð¡Ð¿ÐµÑ†Ð¸Ð°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ - " << specialty << " Ð¡Ñ‚Ð°Ð¶ Ð¿Ñ€ÐµÐ¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÐµÐ»Ñ - " << experience << " Ð»ÐµÑ‚" << endl;
 	}
 };
 
@@ -148,7 +148,7 @@ public:
 	void print()const
 	{
 		Student::print();
-		cout << "Òåìà Äèïëîìíîé ðàáîòû - " << diploma << " ñòðàíèö: " << pages << " Ãîä âûïóñêà:"<< release << endl;
+		cout << "Ð¢ÐµÐ¼Ð° Ð”Ð¸Ð¿Ð»Ð¾Ð¼Ð½Ð¾Ð¹ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ - " << diploma << " ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†: " << pages << " Ð“Ð¾Ð´ Ð²Ñ‹Ð¿ÑƒÑÐºÐ°:"<< release << endl;
 	}
 };
 
