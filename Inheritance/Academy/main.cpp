@@ -5,6 +5,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+
+
+
+#define HUMAN_TAKES_PARAMETERS const std::string& last_name, const std::string& first_name, unsigned int age
+#define HUMAN_GIVE_PARAMETERS last_name,first_name,age
 class Human
 {
 protected:
@@ -19,7 +24,7 @@ public:
 	void set_first_name(const std::string& first_name) { this->first_name = first_name; }
 	void set_age(unsigned int age) { this->age = age; }
 	//					CONSTRUCTORS:
-	Human(const std::string& last_name, const std::string& first_name, unsigned int age)
+	Human(HUMAN_TAKES_PARAMETERS)
 	{
 		set_last_name(last_name);
 		set_first_name(first_name);
@@ -32,12 +37,14 @@ public:
 	}
 
 	//					METHODS:
-	void print()const
+ 	virtual void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " years\n";
 		//printf("%s\t%s\t%u\n", last_name, first_name, age);
 	}
 };
+#define STUDENT_TAKE_PARAMETERS const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance
+#define STUDENT_GIVE_PARAMETERS specialty,group, year, rating, attendance
 class Student :public Human
 {
 	std::string specialty;
@@ -59,9 +66,8 @@ public:
 	//					CONSTRUCTORS:
 	Student
 	(
-		const std::string& last_name, const std::string& first_name, unsigned int age,
-		const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance
-	) :Human(last_name, first_name, age)
+		HUMAN_TAKES_PARAMETERS,	STUDENT_TAKE_PARAMETERS
+	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
 		set_group(group);
@@ -81,6 +87,7 @@ public:
 		cout << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
 	}
 };
+#define TEACHER_TAKE_PARAMETERS const std::string& specialty, unsigned int experience
 class Teacher :public Human
 {
 	std::string specialty;
@@ -93,9 +100,8 @@ public:
 	//					CONSTRUCTORS:
 	Teacher
 	(
-		const std::string& last_name, const std::string& first_name, unsigned int age,
-		const std::string& specialty, unsigned int experience
-	) :Human(last_name, first_name, age)
+		HUMAN_TAKES_PARAMETERS,	TEACHER_TAKE_PARAMETERS
+	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
 		set_experience(experience);
@@ -112,7 +118,7 @@ public:
 		cout << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
 	}
 };
-
+#define GRADUATE_TAKE_PARAMETERS const std::string& diploma, unsigned int pages, unsigned int release
 class Graduate :public Student
 {
 	std::string diploma;
@@ -130,10 +136,8 @@ public:
 	//					CONSTRUCTORS:
 	Graduate
 	(
-		const std::string& last_name, const std::string& first_name, unsigned int age,
-		const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance,
-		const std::string& diploma, unsigned int pages,unsigned int release
-	) :Student(last_name, first_name, age, specialty, group, year, rating, attendance)
+		HUMAN_TAKES_PARAMETERS,	STUDENT_TAKE_PARAMETERS,GRADUATE_TAKE_PARAMETERS
+	) :Student(HUMAN_GIVE_PARAMETERS,STUDENT_GIVE_PARAMETERS)
 	{
 		set_diploma(diploma);
 		set_pages(pages);
@@ -148,13 +152,17 @@ public:
 	void print()const
 	{
 		Student::print();
-		cout << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:"<< release << endl;
+		cout << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
 	}
 };
+
+//#define INHERITANCE_CHECK
 
 void main()
 {
 	setlocale(LC_ALL, "ru");
+#ifdef INHERITANCE_CHECK
+
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	Human human("Goodman", "Saul", 45);
@@ -163,6 +171,23 @@ void main()
 	Pinkman.print();
 	Teacher White("White", "Walter", 56, "Chemistry", 20);
 	White.print();
-	Graduate graduate("Pinkman", "Jesse", 28, "Chemistry", "WW-220", 5, 88, 70, "Synthesis Methamphetamine at home", 62,2013);
+	Graduate graduate("Pinkman", "Jesse", 28, "Chemistry", "WW-220", 5, 88, 70, "Synthesis Methamphetamine at home", 62, 2013);
 	graduate.print();
+#endif // INHERITANCE_CHECK
+
+	Human* group[] =
+	{
+		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,90,95),
+		new Teacher("White","Walter",50,"Chemestry",25),
+		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,90,88,"Catch_Walter_White",62,2013),
+		new Student("Vercetti","Tomas",30,"Thief","Vice",2,88,90),
+		new Teacher("Diaz","Ricardo",50,"Weapon Distruction",20),
+		new Teacher("Einstein","Albert",143,"Astronomy",90)
+	};
+		cout << "--------------------------\n";
+	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
+	{
+		group[i]->print();
+		cout << "--------------------------\n";
+	}
 }
