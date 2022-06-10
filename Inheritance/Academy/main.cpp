@@ -31,7 +31,7 @@ public:
 		set_age(age);
 		printf("HumanContructor:\t%p\n", this);
 	}
-	~Human()
+	virtual ~Human()
 	{
 		printf("HumanDestructor:\t%p\n", this);
 	}
@@ -187,7 +187,13 @@ void main()
 		cout << "--------------------------\n";
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
 	{
-		group[i]->print();
+		//group[i]->print();
+		cout << *group[i] << endl;
 		cout << "--------------------------\n";
+	}
+
+	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
+	{
+		delete group[i];
 	}
 }
