@@ -37,12 +37,18 @@ public:
 	}
 
 	//					METHODS:
- 	virtual void print()const
+	virtual void print()const
 	{
 		cout << last_name << " " << first_name << " " << age << " years\n";
 		//printf("%s\t%s\t%u\n", last_name, first_name, age);
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << " " << obj.get_age() << " years";
+}
+
 #define STUDENT_TAKE_PARAMETERS const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS specialty,group, year, rating, attendance
 class Student :public Human
@@ -66,7 +72,7 @@ public:
 	//					CONSTRUCTORS:
 	Student
 	(
-		HUMAN_TAKES_PARAMETERS,	STUDENT_TAKE_PARAMETERS
+		HUMAN_TAKES_PARAMETERS, STUDENT_TAKE_PARAMETERS
 	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
@@ -87,20 +93,32 @@ public:
 		cout << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Student& obj)
+{
+	//os << (Human&)obj;
+	return os << (Human&)obj
+		<< " " << obj.get_specialty()
+		<< " " << obj.get_group()
+		<< " " << obj.get_year()
+		<< " " << obj.get_rating()
+		<< " " << obj.get_attendance();
+}
+
 #define TEACHER_TAKE_PARAMETERS const std::string& specialty, unsigned int experience
 class Teacher :public Human
 {
 	std::string specialty;
 	unsigned int experience;
 public:
-	const std::string& get_specialty() { return specialty; }
-	unsigned int get_experience() { return experience; }
+	const std::string& get_specialty() const { return specialty; }
+	unsigned int get_experience() const { return experience; }
 	void set_specialty(const std::string& specialty) { this->specialty = specialty; }
 	void set_experience(unsigned int experience) { this->experience = experience; }
 	//					CONSTRUCTORS:
 	Teacher
 	(
-		HUMAN_TAKES_PARAMETERS,	TEACHER_TAKE_PARAMETERS
+		HUMAN_TAKES_PARAMETERS, TEACHER_TAKE_PARAMETERS
 	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
@@ -118,6 +136,14 @@ public:
 		cout << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Teacher& obj)
+{
+	return os << (Human&)obj
+		<< " " << obj.get_specialty()
+		<< " " << obj.get_experience();
+}
+
 #define GRADUATE_TAKE_PARAMETERS const std::string& diploma, unsigned int pages, unsigned int release
 class Graduate :public Student
 {
@@ -126,9 +152,9 @@ class Graduate :public Student
 	unsigned int release;
 
 public:
-	const std::string& get_diploma() { return diploma; }
-	unsigned int get_pages() { return pages; }
-	unsigned int get_release() { return release; }
+	const std::string& get_diploma()const { return diploma; }
+	unsigned int get_pages()const { return pages; }
+	unsigned int get_release()const { return release; }
 	void set_diploma(const std::string& diploma) { this->diploma = diploma; }
 	void set_pages(unsigned int pages) { this->pages = pages; }
 	void set_release(unsigned int release) { this->release = release; }
@@ -136,8 +162,8 @@ public:
 	//					CONSTRUCTORS:
 	Graduate
 	(
-		HUMAN_TAKES_PARAMETERS,	STUDENT_TAKE_PARAMETERS,GRADUATE_TAKE_PARAMETERS
-	) :Student(HUMAN_GIVE_PARAMETERS,STUDENT_GIVE_PARAMETERS)
+		HUMAN_TAKES_PARAMETERS, STUDENT_TAKE_PARAMETERS, GRADUATE_TAKE_PARAMETERS
+	) :Student(HUMAN_GIVE_PARAMETERS, STUDENT_GIVE_PARAMETERS)
 	{
 		set_diploma(diploma);
 		set_pages(pages);
@@ -155,6 +181,14 @@ public:
 		cout << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Graduate& obj)
+{
+	return os << (Student&)obj
+		<< " " << obj.get_diploma()
+		<< " " << obj.get_pages()
+		<< " " << obj.get_release();
+}
 
 //#define INHERITANCE_CHECK
 
@@ -184,11 +218,16 @@ void main()
 		new Teacher("Diaz","Ricardo",50,"Weapon Distruction",20),
 		new Teacher("Einstein","Albert",143,"Astronomy",90)
 	};
-		cout << "--------------------------\n";
+	cout << "--------------------------\n";
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
 	{
 		//group[i]->print();
-		cout << *group[i] << endl;
+		//cout << *group[i] << endl;
+		cout << typeid(*group[i]).name() << endl;
+		if (typeid(*group[i]) == typeid(Teacher)) cout << *dynamic_cast<Teacher*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Student)) cout << *dynamic_cast<Student*>(group[i]) << endl;
+		if (typeid(*group[i]) == typeid(Graduate)) cout << *dynamic_cast<Graduate*>(group[i]) << endl;
+
 		cout << "--------------------------\n";
 	}
 
