@@ -37,12 +37,19 @@ public:
 	}
 
 	//					METHODS:
- 	virtual void print()const
+ 	virtual std::ostream& print(std::ostream& os/* = std::cout*/)const
 	{
-		cout << last_name << " " << first_name << " " << age << " years\n";
+		return os << last_name << " " << first_name << " " << age << " years\n";
 		//printf("%s\t%s\t%u\n", last_name, first_name, age);
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return obj.print(os);
+
+}
+
 #define STUDENT_TAKE_PARAMETERS const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS specialty,group, year, rating, attendance
 class Student :public Human
@@ -81,10 +88,10 @@ public:
 		printf("StudentDestructor:\t%p\n", this);
 	}
 	//					METHODS:
-	void print()const
+	std::ostream& print(std::ostream& os )const
 	{
-		Human::print();
-		cout << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
+		Human::print(os);
+		return os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
 	}
 };
 #define TEACHER_TAKE_PARAMETERS const std::string& specialty, unsigned int experience
@@ -112,10 +119,10 @@ public:
 		printf("TeacherDestructor:\t%p\n", this);
 	}
 	//					METHODS:
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Human::print();
-		cout << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
+		Human::print(os);
+		return os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
 	}
 };
 #define GRADUATE_TAKE_PARAMETERS const std::string& diploma, unsigned int pages, unsigned int release
@@ -149,10 +156,10 @@ public:
 		printf("GraduateConstructor:\t%p\n", this);
 	}
 	//					METHODS:
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Student::print();
-		cout << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
+		//Student::print(os);
+		return Student::print(os) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
 	}
 };
 
