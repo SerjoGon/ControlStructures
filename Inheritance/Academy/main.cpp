@@ -1,4 +1,5 @@
 ﻿#include<iostream>
+#include<fstream>
 #include<string>
 #include<Windows.h>
 using std::cout;
@@ -37,12 +38,26 @@ public:
 	}
 
 	//					METHODS:
+	 virtual std::ofstream&  print(std::ofstream& os)const
+	{
+		//os.open("Academy", std::ios_base::app);
+		os << last_name << " " << first_name << " " << age << " years\n";
+		//os.close();
+		return os;
+	}
+
  	virtual std::ostream& print(std::ostream& os/* = std::cout*/)const
 	{
 		return os << last_name << " " << first_name << " " << age << " years\n";
 		//printf("%s\t%s\t%u\n", last_name, first_name, age);
 	}
 };
+
+std::ofstream& operator<<(std::ofstream& os, const Human& obj)
+{
+	return obj.print(os);
+
+}
 
 std::ostream& operator<<(std::ostream& os, const Human& obj)
 {
@@ -88,6 +103,16 @@ public:
 		printf("StudentDestructor:\t%p\n", this);
 	}
 	//					METHODS:
+
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Human::print(os);
+		//os.open("Academy", std::ios_base::app);
+		os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость\n";
+		//os.close();
+		return os;
+	}
+
 	std::ostream& print(std::ostream& os )const
 	{
 		Human::print(os);
@@ -119,6 +144,16 @@ public:
 		printf("TeacherDestructor:\t%p\n", this);
 	}
 	//					METHODS:
+
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Human::print(os);
+		//os.open("Academy", std::ios_base::app);
+		os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет\n";
+		//os.close();
+		return os;
+	}
+
 	std::ostream& print(std::ostream& os)const
 	{
 		Human::print(os);
@@ -156,6 +191,16 @@ public:
 		printf("GraduateConstructor:\t%p\n", this);
 	}
 	//					METHODS:
+
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Student::print(os);
+		//os.open("Academy", std::ios_base::app);
+		os << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << "\n";
+		//os.close();
+		return os;
+	}
+
 	std::ostream& print(std::ostream& os)const
 	{
 		//Student::print(os);
@@ -191,16 +236,22 @@ void main()
 		new Teacher("Diaz","Ricardo",50,"Weapon Distruction",20),
 		new Teacher("Einstein","Albert",143,"Astronomy",90)
 	};
+	std::ofstream fout("Academy.txt");
 		cout << "--------------------------\n";
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
 	{
 		//group[i]->print();
 		cout << *group[i] << endl;
 		cout << "--------------------------\n";
+		//group[i]->fout();
+		fout << *group[i] << "\n";
+		fout << "--------------------------\n";
 	}
+	fout.close();
 
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]);i++)
 	{
 		delete group[i];
 	}
+	system("notepad Academy.txt");
 }
