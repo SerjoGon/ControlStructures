@@ -2,12 +2,10 @@
 #include<fstream>
 #include<string>
 #include<Windows.h>
+#include<iomanip>
 using std::cout;
 using std::cin;
 using std::endl;
-
-
-
 
 #define HUMAN_TAKES_PARAMETERS const std::string& last_name, const std::string& first_name, unsigned int age
 #define HUMAN_GIVE_PARAMETERS last_name,first_name,age
@@ -38,12 +36,13 @@ public:
 	}
 
 	//					METHODS:
-	 virtual std::ofstream&  print(std::ofstream& os)const
+	 virtual std::ofstream&  print(std::ofstream& ofs)const
 	{
-		//os.open("Academy", std::ios_base::app);
-		os << last_name << " " << first_name << " " << age << " years\n";
-		//os.close();
-		return os;
+		 ofs.width(20);
+		 ofs << std::left;
+		 ofs << last_name + " " + first_name;
+		 ofs << age;
+		return ofs;
 	}
 
  	virtual std::ostream& print(std::ostream& os/* = std::cout*/)const
@@ -104,13 +103,19 @@ public:
 	}
 	//					METHODS:
 
-	std::ofstream& print(std::ofstream& os)const
+	std::ofstream& print(std::ofstream& ofs)const
 	{
-		Human::print(os);
-		//os.open("Academy", std::ios_base::app);
-		os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость\n";
-		//os.close();
-		return os;
+		Human::print(ofs);
+		ofs.width(25);
+		ofs << std::left;
+		ofs << specialty;
+		ofs.width(8);
+		ofs << group << " " << year;
+		ofs.width(8);
+		ofs << std::right;
+		ofs << std::setprecision(2) << std::fixed;
+		ofs << rating << "\t" << attendance;
+		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os )const
@@ -145,13 +150,13 @@ public:
 	}
 	//					METHODS:
 
-	std::ofstream& print(std::ofstream& os)const
+	std::ofstream& print(std::ofstream& ofs)const
 	{
-		Human::print(os);
-		//os.open("Academy", std::ios_base::app);
-		os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет\n";
-		//os.close();
-		return os;
+		Human::print(ofs);
+		//ofs.open("Academy", std::ios_base::app);
+		ofs << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет ";
+		//ofs.close();
+		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os)const
@@ -192,18 +197,15 @@ public:
 	}
 	//					METHODS:
 
-	std::ofstream& print(std::ofstream& os)const
+	std::ofstream& print(std::ofstream& ofs)const
 	{
-		Student::print(os);
-		//os.open("Academy", std::ios_base::app);
-		os << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << "\n";
-		//os.close();
-		return os;
+		Student::print(ofs) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release;
+		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os)const
 	{
-		//Student::print(os);
+		//Student::print(ofs);
 		return Student::print(os) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
 	}
 };
@@ -229,9 +231,9 @@ void main()
 
 	Human* group[] =
 	{
-		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,90,95),
+		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,91.22,95),
 		new Teacher("White","Walter",50,"Chemestry",25),
-		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,90,88,"Catch_Walter_White",62,2013),
+		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,94.543,88,"Catch_Walter_White",62,2013),
 		new Student("Vercetti","Tomas",30,"Thief","Vice",2,88,90),
 		new Teacher("Diaz","Ricardo",50,"Weapon Distruction",20),
 		new Teacher("Einstein","Albert",143,"Astronomy",90)
@@ -245,7 +247,7 @@ void main()
 		cout << "--------------------------\n";
 		//group[i]->fout();
 		fout << *group[i] << "\n";
-		fout << "--------------------------\n";
+		//fout << "--------------------------\n";
 	}
 	fout.close();
 

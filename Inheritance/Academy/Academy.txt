@@ -1,25 +1,6 @@
-Pinkman Jessie 23 years
-Специализация - Chemestry Группа - WW_220 1-й курс 90% успеваемость 95% посещаемость
-
---------------------------
-White Walter 50 years
-Специализация - Chemestry Стаж преподавателя - 25 лет
-
---------------------------
-Schreder Hank 40 years
-Специализация - Criminalisics Группа - WW_220 5-й курс 90% успеваемость 88% посещаемость
-Тема Дипломной работы - Catch_Walter_White страниц: 62 Год выпуска:2013
-
---------------------------
-Vercetti Tomas 30 years
-Специализация - Thief Группа - Vice 2-й курс 88% успеваемость 90% посещаемость
-
---------------------------
-Diaz Ricardo 50 years
-Специализация - Weapon Distruction Стаж преподавателя - 20 лет
-
---------------------------
-Einstein Albert 143 years
-Специализация - Astronomy Стаж преподавателя - 90 лет
-
---------------------------
+Pinkman Jessie      23Chemestry                WW_220   1   91.22	95.00
+White Walter        50Специализация - Chemestry Стаж преподавателя - 25 лет 
+Schreder Hank       40Criminalisics            WW_220   5   94.54	88.00Тема Дипломной работы - Catch_Walter_White страниц: 62 Год выпуска:2013
+Vercetti Tomas      30Thief                    Vice     2   88.00	90.00
+Diaz Ricardo        50Специализация - Weapon Distruction Стаж преподавателя - 20 лет 
+Einstein Albert     143Специализация - Astronomy Стаж преподавателя - 90 лет 
