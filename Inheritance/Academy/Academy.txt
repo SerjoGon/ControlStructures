@@ -1,6 +1,6 @@
-Pinkman Jessie      23Chemestry                WW_220   1   91.22	95.00
-White Walter        50Специализация - Chemestry Стаж преподавателя - 25 лет 
-Schreder Hank       40Criminalisics            WW_220   5   94.54	88.00Тема Дипломной работы - Catch_Walter_White страниц: 62 Год выпуска:2013
-Vercetti Tomas      30Thief                    Vice     2   88.00	90.00
-Diaz Ricardo        50Специализация - Weapon Distruction Стаж преподавателя - 20 лет 
-Einstein Albert     143Специализация - Astronomy Стаж преподавателя - 90 лет 
+Einstein Albert     143	Astronomy              90
+Diaz Ricardo        50	Weapon Distruction     20
+White Walter        50	Chemestry              25
+Pinkman Jessie      23	Chemestry       WW_220  1   91.22	95.00	
+Vercetti Tomas      30	Thief           Vice    2   88.00	90.00	
+Schreder Hank       40	Criminalisics   WW_220  5   94.54	88.00	Catch_Walter_White	62	2013

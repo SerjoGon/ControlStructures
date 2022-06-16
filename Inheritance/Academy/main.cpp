@@ -41,14 +41,18 @@ public:
 		 ofs.width(20);
 		 ofs << std::left;
 		 ofs << last_name + " " + first_name;
-		 ofs << age;
+		 ofs << age<< "\t";
 		return ofs;
 	}
 
  	virtual std::ostream& print(std::ostream& os/* = std::cout*/)const
 	{
-		return os << last_name << " " << first_name << " " << age << " years\n";
-		//printf("%s\t%s\t%u\n", last_name, first_name, age);
+		//return os << last_name << " " << first_name << " " << age << " years\n";
+		os.width(20);
+		os << std::left;
+		os << last_name + " " + first_name;
+		os << age << "\t";
+		return os;
 	}
 };
 
@@ -106,22 +110,33 @@ public:
 	std::ofstream& print(std::ofstream& ofs)const
 	{
 		Human::print(ofs);
-		ofs.width(25);
+		ofs.width(15);
 		ofs << std::left;
-		ofs << specialty;
+		ofs << specialty<< " ";
 		ofs.width(8);
-		ofs << group << " " << year;
+		ofs << group  << year;
 		ofs.width(8);
 		ofs << std::right;
 		ofs << std::setprecision(2) << std::fixed;
-		ofs << rating << "\t" << attendance;
+		ofs << rating << "\t" << attendance<<"\t";
 		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os )const
 	{
 		Human::print(os);
-		return os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
+		
+		//return os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
+		os.width(15);
+		os << std::left;
+		os << specialty << " ";
+		os.width(8);
+		os << group << year;
+		os.width(8);
+		os << std::right;
+		os << std::setprecision(2) << std::fixed;
+		os << rating << "\t" << attendance << "\t";
+		return os;
 	}
 };
 #define TEACHER_TAKE_PARAMETERS const std::string& specialty, unsigned int experience
@@ -153,16 +168,20 @@ public:
 	std::ofstream& print(std::ofstream& ofs)const
 	{
 		Human::print(ofs);
-		//ofs.open("Academy", std::ios_base::app);
-		ofs << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет ";
-		//ofs.close();
+		ofs.width(23);
+		ofs << std::left;
+		ofs  << specialty << experience;
 		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os)const
 	{
 		Human::print(os);
-		return os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
+		//return os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
+		os.width(23);
+		os << std::left;
+		os << specialty << experience;
+		return os;
 	}
 };
 #define GRADUATE_TAKE_PARAMETERS const std::string& diploma, unsigned int pages, unsigned int release
@@ -199,14 +218,19 @@ public:
 
 	std::ofstream& print(std::ofstream& ofs)const
 	{
-		Student::print(ofs) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release;
+		Student::print(ofs);
+		ofs.width(15);
+		ofs <<  diploma <<"\t" << pages <<"\t" << release;
 		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os)const
 	{
-		//Student::print(ofs);
-		return Student::print(os) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
+		Student::print(os);
+		//return Student::print(os) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
+		os.width(15);
+		os << diploma << "\t" << pages << "\t" << release;
+		return os;
 	}
 };
 
@@ -231,12 +255,12 @@ void main()
 
 	Human* group[] =
 	{
-		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,91.22,95),
-		new Teacher("White","Walter",50,"Chemestry",25),
-		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,94.543,88,"Catch_Walter_White",62,2013),
-		new Student("Vercetti","Tomas",30,"Thief","Vice",2,88,90),
+		new Teacher("Einstein","Albert",143,"Astronomy",90),
 		new Teacher("Diaz","Ricardo",50,"Weapon Distruction",20),
-		new Teacher("Einstein","Albert",143,"Astronomy",90)
+		new Teacher("White","Walter",50,"Chemestry",25),
+		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,91.22,95),
+		new Student("Vercetti","Tomas",30,"Thief","Vice",2,88,90),
+		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,94.543,88,"Catch_Walter_White",62,2013),\
 	};
 	std::ofstream fout("Academy.txt");
 		cout << "--------------------------\n";
