@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 class Vehicle
@@ -16,7 +16,7 @@ class Car :public GroundVehicle
 public:
 	void move()
 	{
-		cout << "Ìàøèíà åäåò íà ÷åòûðåõ êîëåñàõ(êàê ìèíèìóì)" << endl;
+		cout << "ÐœÐ°ÑˆÐ¸Ð½Ð° ÐµÐ´ÐµÑ‚ Ð½Ð° Ñ‡ÐµÑ‚Ñ‹Ñ€ÐµÑ… ÐºÐ¾Ð»ÐµÑÐ°Ñ…(ÐºÐ°Ðº Ð¼Ð¸Ð½Ð¸Ð¼ÑƒÐ¼)" << endl;
 	}
 };
 class Bike :public GroundVehicle
@@ -24,7 +24,7 @@ class Bike :public GroundVehicle
 public:
 	void move()
 	{
-		cout << "Ìîòîöèêë åäåò íà äâóõ êîëåñàõ!!!" << endl;
+		cout << "ÐœÐ¾Ñ‚Ð¾Ñ†Ð¸ÐºÐ» ÐµÐ´ÐµÑ‚ Ð½Ð° Ð´Ð²ÑƒÑ… ÐºÐ¾Ð»ÐµÑÐ°Ñ…!!!" << endl;
 	}
 };
 
@@ -38,14 +38,14 @@ public:
 class Helicopter :public AirVehicle
 {
 public:
-	void move() { cout << "Âåðòàëåò ëåòèò ÎÒ ÂÈÍÒÀ!!!)))" << endl; }
-	void take_off() { cout << "Âåðòèêàëüíûé âçëåò!!!" << endl; }
+	void move() { cout << "Ð’ÐµÑ€Ñ‚Ð°Ð»ÐµÑ‚ Ð»ÐµÑ‚Ð¸Ñ‚ ÐžÐ¢ Ð’Ð˜ÐÐ¢Ð!!!)))" << endl; }
+	void take_off() { cout << "Ð’ÐµÑ€Ñ‚Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð·Ð»ÐµÑ‚!!!" << endl; }
 };
 
 int main()
 {
 	setlocale(LC_ALL, "RU");
-	//Vehicle v; // Íåâîçìîæíî ñîçäàòü ýêçåìïëÿð àáñòðàêòíîãî êëàññà
+	//Vehicle v; // ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð°Ð±ÑÑ‚Ñ€Ð°ÐºÑ‚Ð½Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°
 	//GroundVehicle GV; // 
 	Car bmv;
 	Bike harley;
