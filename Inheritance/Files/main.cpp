@@ -6,9 +6,13 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+//#define WRITE_TO_FILE
+
 int main()
 {
 	setlocale(LC_ALL, "ru");
+#ifdef WRITE_TO_FILE
+
 
 	const int size = 256;
 	char sz_filename[size] = {};
@@ -38,5 +42,27 @@ int main()
 	char sz_command[size] = "notepad ";
 	strcat(sz_command, sz_filename);
 	system(sz_command);
+#endif // WRITE_TO_FILE
+	
+	std::ifstream fin;
+	fin.open("File.txt");
+	if (fin.is_open())
+	{
+		//TODO: read file
+		const int n = 10000;
+		char buffer[n] = {};
+		while (!fin.eof())
+		{
+			//fin >> buffer;
+			fin.getline(buffer, n);
+			cout << buffer << endl;
+		}
+	}
+	else
+	{
+		std::cerr << "Eror: File not found" << endl;
+	}
+	fin.close();
+	system("notepad File.txt");
 	return 0;
 }

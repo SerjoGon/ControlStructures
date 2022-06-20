@@ -41,6 +41,8 @@ public:
 		 ofs.width(20);
 		 ofs << std::left;
 		 ofs << last_name + " " + first_name;
+		 ofs.width(4);
+		 ofs << std::right;
 		 ofs << age<< "\t";
 		return ofs;
 	}
@@ -51,48 +53,59 @@ public:
 		os.width(20);
 		os << std::left;
 		os << last_name + " " + first_name;
+		os.width(4);
+		os << std::right;
 		os << age << "\t";
 		return os;
 	}
+
+	virtual std::ifstream& scan(std::ifstream& ifs)
+	{
+		std::string buffer;
+		ifs >> last_name >> first_name >> age;
+		return ifs;
+	}
 };
 
-std::ofstream& operator<<(std::ofstream& os, const Human& obj)
+std::ofstream& operator <<(std::ofstream& ofs, const Human& obj)
 {
-	return obj.print(os);
+	return obj.print(ofs);
 
 }
 
-std::ostream& operator<<(std::ostream& os, const Human& obj)
+std::ostream& operator <<(std::ostream& os, const Human& obj)
 {
 	return obj.print(os);
+}
 
+std::ifstream& operator >> (std::ifstream& ifs, Human& obj)
+{
+	return obj.scan(ifs);
 }
 
 #define STUDENT_TAKE_PARAMETERS const std::string& specialty, const std::string& group, unsigned int year, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS specialty,group, year, rating, attendance
 class Student :public Human
 {
-	std::string specialty;
+	std::string speciality;
 	std::string group;
 	unsigned int year;
 	double rating;
 	double attendance;
 public:
-	const std::string& get_specialty()const { return specialty; }
+	const std::string& get_specialty()const { return speciality; }
 	const std::string& get_group()const { return group; }
 	unsigned int get_year()const { return year; }
 	double get_rating()const { return rating; }
 	double get_attendance()const { return attendance; }
-	void set_specialty(const std::string& speciality) { this->specialty = speciality; }
+	void set_specialty(const std::string& speciality) { this->speciality = speciality; }
 	void set_group(const std::string& group) { this->group = group; }
 	void set_year(unsigned int year) { this->year = year; }
 	void set_rating(double rating) { this->rating = rating; }
 	void set_attendance(double attendance) { this->attendance = attendance; }
 	//					CONSTRUCTORS:
 	Student
-	(
-		HUMAN_TAKES_PARAMETERS,	STUDENT_TAKE_PARAMETERS
-	) :Human(HUMAN_GIVE_PARAMETERS)
+	(HUMAN_TAKES_PARAMETERS,STUDENT_TAKE_PARAMETERS	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
 		set_group(group);
@@ -110,9 +123,9 @@ public:
 	std::ofstream& print(std::ofstream& ofs)const
 	{
 		Human::print(ofs);
-		ofs.width(15);
+		ofs.width(20);
 		ofs << std::left;
-		ofs << specialty<< " ";
+		ofs << speciality<< " ";
 		ofs.width(8);
 		ofs << group  << year;
 		ofs.width(8);
@@ -126,10 +139,10 @@ public:
 	{
 		Human::print(os);
 		
-		//return os << "Специализация - " << specialty << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
+		//return os << "Специализация - " << speciality << " Группа - " << group << " " << year << "-й курс " << rating << "% успеваемость " << attendance << "% посещаемость" << endl;
 		os.width(15);
 		os << std::left;
-		os << specialty << " ";
+		os << speciality << " ";
 		os.width(8);
 		os << group << year;
 		os.width(8);
@@ -138,16 +151,27 @@ public:
 		os << rating << "\t" << attendance << "\t";
 		return os;
 	}
+	std::ifstream& scan(std::ifstream& ifs)
+	{
+		Human::scan(ifs);
+		ifs >> speciality;
+		ifs >> group;
+		ifs >> year;
+		ifs >> rating;
+		ifs >> attendance;
+		return ifs;
+	}
+
 };
 #define TEACHER_TAKE_PARAMETERS const std::string& specialty, unsigned int experience
 class Teacher :public Human
 {
-	std::string specialty;
+	std::string speciality;
 	unsigned int experience;
 public:
-	const std::string& get_specialty() { return specialty; }
+	const std::string& get_specialty() { return speciality; }
 	unsigned int get_experience() { return experience; }
-	void set_specialty(const std::string& specialty) { this->specialty = specialty; }
+	void set_speciality(const std::string& specialty) { this->speciality = specialty; }
 	void set_experience(unsigned int experience) { this->experience = experience; }
 	//					CONSTRUCTORS:
 	Teacher
@@ -155,7 +179,7 @@ public:
 		HUMAN_TAKES_PARAMETERS,	TEACHER_TAKE_PARAMETERS
 	) :Human(HUMAN_GIVE_PARAMETERS)
 	{
-		set_specialty(specialty);
+		set_speciality(specialty);
 		set_experience(experience);
 		printf("TeacherConstructor:\t%p\n", this);
 	}
@@ -168,36 +192,52 @@ public:
 	std::ofstream& print(std::ofstream& ofs)const
 	{
 		Human::print(ofs);
+		ofs.width(27);
+		ofs << std::left;
+		ofs << speciality;
 		ofs.width(23);
 		ofs << std::left;
-		ofs  << specialty << experience;
+		ofs << experience;
 		return ofs;
 	}
 
 	std::ostream& print(std::ostream& os)const
 	{
 		Human::print(os);
-		//return os << "Специализация - " << specialty << " Стаж преподавателя - " << experience << " лет" << endl;
+		//return os << "Специализация - " << speciality << " Стаж преподавателя - " << experience << " лет" << endl;
 		os.width(23);
 		os << std::left;
-		os << specialty << experience;
+		os << speciality << experience;
 		return os;
 	}
+
+	std::ifstream& scan(std::ifstream& ifs)
+	{
+		Human::scan(ifs);
+		//ifs >> speciality;
+		const int n = 25;
+		char speciality[n] = {};
+		ifs.read(speciality, n);
+		for (int i = n - 1; speciality[i] == ' '; i--)speciality[i] = 0;
+		set_speciality(speciality);
+		ifs >> experience;
+		return ifs;
+	}
 };
-#define GRADUATE_TAKE_PARAMETERS const std::string& diploma, unsigned int pages, unsigned int release
+#define GRADUATE_TAKE_PARAMETERS const std::string& diploma/*, unsigned int pages, unsigned int release*/
 class Graduate :public Student
 {
 	std::string diploma;
-	unsigned int pages;
-	unsigned int release;
+	/*unsigned int pages;
+	unsigned int release;*/
 
 public:
 	const std::string& get_diploma() { return diploma; }
-	unsigned int get_pages() { return pages; }
-	unsigned int get_release() { return release; }
+	//unsigned int get_pages() { return pages; }
+	//unsigned int get_release() { return release; }
 	void set_diploma(const std::string& diploma) { this->diploma = diploma; }
-	void set_pages(unsigned int pages) { this->pages = pages; }
-	void set_release(unsigned int release) { this->release = release; }
+	//void set_pages(unsigned int pages) { this->pages = pages; }
+	//void set_release(unsigned int release) { this->release = release; }
 
 	//					CONSTRUCTORS:
 	Graduate
@@ -206,8 +246,8 @@ public:
 	) :Student(HUMAN_GIVE_PARAMETERS,STUDENT_GIVE_PARAMETERS)
 	{
 		set_diploma(diploma);
-		set_pages(pages);
-		set_release(release);
+		//set_pages(pages);
+		//set_release(release);
 		printf("GraduateConstructor:\t%p\n", this);
 	}
 	~Graduate()
@@ -219,8 +259,9 @@ public:
 	std::ofstream& print(std::ofstream& ofs)const
 	{
 		Student::print(ofs);
-		ofs.width(15);
-		ofs <<  diploma <<"\t" << pages <<"\t" << release;
+		ofs.width(10);
+		ofs << std::left;
+		ofs << " " << diploma/* <<"\t" << pages <<"\t" << release*/;
 		return ofs;
 	}
 
@@ -228,14 +269,61 @@ public:
 	{
 		Student::print(os);
 		//return Student::print(os) << "Тема Дипломной работы - " << diploma << " страниц: " << pages << " Год выпуска:" << release << endl;
-		os.width(15);
-		os << diploma << "\t" << pages << "\t" << release;
+		os.width(10);
+		os << " " << diploma /*<< "\t" << pages << "\t" << release*/;
 		return os;
+	}
+
+	std::ifstream& scan(std::ifstream& ifs)
+	{
+		Student::scan(ifs);
+		std::getline(ifs, this->diploma);
+		return ifs;
 	}
 };
 
-//#define INHERITANCE_CHECK
+Human* HumanFactory(const std::string& type)
+{
+	if (type.find("class Student") != std::string::npos)return new Student("", "", 0, "", "", 0, 0, 0);
+	if (type.find("class Graduate") != std::string::npos)return new Graduate("", "", 0, "", "", 0, 0, 0, "");
+	if (type.find("class Teacher") != std::string::npos)return new Teacher("","",0,"",0);
+}
 
+Human** load(const std::string& filename, int& n)
+{
+	Human** group;
+	std::ifstream fin(filename);
+	if (fin.is_open())
+	{
+		std::string buffer;
+		while (!fin.eof())
+		{
+			std::getline(fin, buffer);
+			n++;
+		}
+		n--;
+		group = new Human * [n] {};
+		fin.clear();
+		fin.seekg(0);
+		for (int i = 0; i < n; i++)
+		{
+			std::getline(fin, buffer, ':');
+			group[i] = HumanFactory(buffer);
+			fin >> *group[i];
+		}
+	}
+	else
+	{
+		std::cerr << "Error: file not found" << endl;
+		return nullptr;
+	}
+	fin.close();
+	return group;
+
+}
+
+//#define INHERITANCE_CHECK
+//#define WRITE_TO_FILE
 void main()
 {
 	setlocale(LC_ALL, "ru");
@@ -253,6 +341,10 @@ void main()
 	graduate.print();
 #endif // INHERITANCE_CHECK
 
+#ifdef WRITE_TO_FILE
+
+
+
 	Human* group[] =
 	{
 		new Teacher("Einstein","Albert",143,"Astronomy",90),
@@ -260,7 +352,7 @@ void main()
 		new Teacher("White","Walter",50,"Chemestry",25),
 		new Student("Pinkman","Jessie",23,"Chemestry","WW_220",1,91.22,95),
 		new Student("Vercetti","Tomas",30,"Thief","Vice",2,88,90),
-		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,94.543,88,"Catch_Walter_White",62,2013),\
+		new Graduate("Schreder","Hank",40,"Criminalisics","WW_220",5,94.543,88,"Catch_Walter_White"),\
 	};
 	std::ofstream fout("Academy.txt");
 		cout << "--------------------------\n";
@@ -270,7 +362,8 @@ void main()
 		cout << *group[i] << endl;
 		cout << "--------------------------\n";
 		//group[i]->fout();
-		fout << *group[i] << "\n";
+		fout << typeid(*group[i]).name() << ":\t";
+		fout << *group[i] << endl;
 		//fout << "--------------------------\n";
 	}
 	fout.close();
@@ -280,4 +373,17 @@ void main()
 		delete group[i];
 	}
 	system("notepad Academy.txt");
+#endif // WRITE_TO_FILE
+	int n = 0;
+	Human** group = load("Academy.txt", n);
+
+	for (int i = 0;  i < n;  i++)
+	{
+		cout << *group[i] << endl;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		delete group[i];
+	}
+	delete[] group;
 }
