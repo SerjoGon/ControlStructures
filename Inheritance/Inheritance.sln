@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AbstructBaseClass", "Abstru
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GeometricShapes", "GeometricShapes\GeometricShapes.vcxproj", "{F3F356A9-B973-4DCB-81C1-C646D1DA1AED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AbstractGeometry", "AbstractGeometry\AbstractGeometry.vcxproj", "{E7B595E3-1E23-4F99-8538-DB073B9FBB24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{F3F356A9-B973-4DCB-81C1-C646D1DA1AED}.Release|x64.Build.0 = Release|x64
 		{F3F356A9-B973-4DCB-81C1-C646D1DA1AED}.Release|x86.ActiveCfg = Release|Win32
 		{F3F356A9-B973-4DCB-81C1-C646D1DA1AED}.Release|x86.Build.0 = Release|Win32
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Debug|x64.ActiveCfg = Debug|x64
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Debug|x64.Build.0 = Debug|x64
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Debug|x86.ActiveCfg = Debug|Win32
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Debug|x86.Build.0 = Debug|Win32
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Release|x64.ActiveCfg = Release|x64
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Release|x64.Build.0 = Release|x64
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Release|x86.ActiveCfg = Release|Win32
+		{E7B595E3-1E23-4F99-8538-DB073B9FBB24}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
