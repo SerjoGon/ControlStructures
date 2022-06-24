@@ -1,13 +1,17 @@
 #include<iostream>
 #include<Windows.h>
-using std::cout;
+#include<wingdi.h>
+using std::cout; 
 using std::cin;
 using std::endl;
 
 namespace Geometry
 {
+	
+#define IDM_ELLIPSE		1100
 	//enum (Enumeration - перечисление) - это набор целочисленных констант.
 // Перечесление так же является типом данных.
+	const double p = 3.14;
 
 	enum class Color
 	{
@@ -143,19 +147,61 @@ namespace Geometry
 			Shape::info();
 		}
 	};
+
+	class Circle :public Shape
+	{
+		double radius;
+	public:
+		double get_radius()const { return radius; }
+		void set_radius(double radius) 
+		{
+			if (radius <= 0) radius = 20;
+			this->radius = radius;
+		}
+		Circle(double radius, Color color) :Shape(color)
+		{
+			set_radius(radius);
+		}
+		~Circle(){}
+		double get_area()const { return (radius * radius) * p; }
+		double get_diameter()const { return radius * 2; }
+		double get_perimeter()const { return get_diameter() * p; }
+		void info()const
+		{
+			cout << typeid(*this).name() << endl;
+			cout << "Радиус окружности: " << radius << endl;
+			cout << "Диаметр окружности: " << get_diameter() << endl;
+			Shape::info();
+		}
+		void draw()const
+		{
+			HWND hwnd = GetConsoleWindow();
+			HDC hdc = GetDC(hwnd);
+			HPEN hPen = CreatePen(PS_SOLID, 10, (WORD)color);
+			HBRUSH hBrush = CreateSolidBrush((WORD)color);
+			SelectObject(hdc, hPen);
+			SelectObject(hdc, hBrush);
+			::Ellipse(hdc, 200, 200, 500, 200);
+			DeleteObject(hPen);
+			DeleteObject(hBrush);
+			ReleaseDC(hwnd, hdc);
+		}
+	};
 }
 
 int main()
 {
 	setlocale(LC_ALL, "Ru");
 	//Shape shape(Color::console_blue);
-	Geometry::Square square(5, Geometry::Color::console_red);
+	//Geometry::Square square(5, Geometry::Color::console_red);
 	/*cout << "Длина стороны квадрата: " << square.get_side() << endl;
 	cout << "Площадь квадрата: " << square.get_area() << endl;
 	cout << "Периметер квадрата: " << square.get_perimeter() << endl;*/
-	square.info();
+	/*square.info();
 	Geometry::Rectangle rect(50, 30, Geometry::Color::blue);
-	rect.info();
+	rect.info();*/
+	Geometry::Circle circle(30, Geometry::Color::console_red);
+
 	//Нижняя граница 
 	return 0;
 }
